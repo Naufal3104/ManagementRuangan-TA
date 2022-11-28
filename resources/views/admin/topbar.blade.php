@@ -10,7 +10,7 @@
             <form action="logout" method="POST">
               @csrf
             <a href="#" data-toggle="modal" data-target="#logoutModal" class="nav-link text-white font-weight-bold px-0">
-              <input class="btn btn-danger" type="submit" value="Logout">
+              <input class="btn btn-danger btn-outline-light" type="submit" value="Logout">
             </a>
             </form>
           </li>

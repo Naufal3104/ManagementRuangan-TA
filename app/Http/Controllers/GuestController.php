@@ -21,6 +21,9 @@ class GuestController extends Controller
     {
         $data = Jadwal::all();
         return view('guest', compact('data'));
+
+        // dd(Carbon::now()->diffForHumans());
+        // dd(date("Y-m-d h:i:00 "));
     }
 
     /**
@@ -62,7 +65,7 @@ class GuestController extends Controller
         ]);
         $data = Transaksi::latest()->first();
         $data1 = User::first();
-        return redirect()->back()->with('success','Token Anda adalah ' . $data->token . ". Hubungi " . $data1->telp . " untuk melakukan pembayaran");
+        return redirect()->back()->with('success','Token Anda adalah ' . $data->token . ". Hubungi 0" . $data1->telp . " untuk melakukan pembayaran");
         
 
     }
@@ -109,13 +112,13 @@ class GuestController extends Controller
      */
     public function destroy($id)
     {
-        Jadwal::where('waktuhingga', '<', Carbon::now())->each(function ($jadwal) {
-            $jadwal->delete();
-        });
+        // $current = date("Y-m-d h:i:00d");
 
-        $jadwal = \App\Models\Jadwal::whereDate('Waktuhingga', '<=', now())->delete();
+        // Jadwal::find($id)->where('waktuhingga', '<', $current)->delete();
 
-        $jadwal1 = \App\Models\Jadwal::whereRaw('DATEDIFF(NOW(), Waktuhingga) > 1')->delete();
+        // $jadwal = \App\Models\Jadwal::whereDate('Waktuhingga', '<=', date("Y-m-d h:i:00 "))->delete();
+
+        // $jadwal1 = \App\Models\Jadwal::whereRaw('DATEDIFF(NOW(), Waktuhingga) > 1')->delete();
 
     }
 }
