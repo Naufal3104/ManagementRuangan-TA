@@ -15,9 +15,8 @@ class AdmindashboardController extends Controller
      */
     public function index()
     {
-        $data = Ruangan::all();
         $data1 = Jadwal::all();
-        return view('admin.dashboard', compact('data', 'data1'));
+        return view('admin.dashboard', compact('data1'));
     }
 
     /**

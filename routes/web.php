@@ -4,7 +4,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdmindashboardController;
 use App\Http\Controllers\LogController;
-use App\Http\Controllers\EditController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\UserController;
@@ -48,8 +47,10 @@ route::middleware('auth')->group(function(){
 
     Route::resource('/adminrequest', App\Http\Controllers\LogController::class);
 
-    Route::resource('/adminedit', App\Http\Controllers\EditController::class);
-
     Route::resource('/editruangan', App\Http\Controllers\RuanganController::class);
+
+    Route::get('/adminedit', function () {
+        return view('admin.edit');
+    });
 });
 

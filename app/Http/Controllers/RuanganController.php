@@ -15,7 +15,7 @@ class RuanganController extends Controller
     public function index()
     {
         $data = Ruangan::all();
-        return view('admin.editruangan', compact('data'));
+        return view('admin.ruangan', compact('data'));
     }
 
     /**
@@ -47,7 +47,7 @@ class RuanganController extends Controller
         Ruangan::create([
             'Namaruangan' => $request->Namaruangan                  
         ]);
-        return redirect('adminedit');
+        return redirect('editruangan');
     }
 
     /**
@@ -69,7 +69,8 @@ class RuanganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Ruangan::find($id);
+        return view('admin.editruangan', compact('data'));
     }
 
     /**
@@ -81,7 +82,17 @@ class RuanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $messages = [
+            'required' =>':attribute harus diisi terlebih dahulu'
+        ];
+        $this->validate ($request,[
+            'Namaruangan' => 'required',         
+        ],$messages);
+        
+        $ruangan=Ruangan::find($id);
+        $ruangan->Namaruangan = $request->Namaruangan;
+        $ruangan->save();
+        return redirect('editruangan');
     }
 
     /**

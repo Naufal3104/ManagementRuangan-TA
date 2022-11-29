@@ -19,37 +19,6 @@
         </div>
     </div>    
 </div>
-<div class="container-fluid ">
-        <div class = "row">
-            <div class = "col-lg-12">
-                <div class = "card shadow ">
-                    <div class = "card-body">
-                        <table class = "table text-center">
-                            <h4 class="text-center">Nama Ruangan</h4>
-                            <thead>
-                                <tr>
-                                    <th scope = "col">No.</th>
-                                    <th scope = "col">Ruangan</th>
-                                    <th scope = "col">Deskripsi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php $i = 1?>
-                                @foreach ($data as $item)
-                                <tr>
-                                    <th scope = "row">{{ $i++}}</th>
-                                    <td>{{$item->Namaruangan}}</td>
-                                    <td><a href = "admin/{{ $item->id}}" class = "btn btn-success btn-group"><i class = "ni ni-archive-2"></i></a></td>    
-                                    @endforeach
-                                    @csrf
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
   <div class="container-fluid py-4">
     <div class = "row">
         <div class = "col-lg-12">
