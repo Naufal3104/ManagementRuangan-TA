@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ruangan;
 use Illuminate\Http\Request;
-use App\Models\Transaksi;
 
-class LogController extends Controller
+class EditpenggunaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class LogController extends Controller
      */
     public function index()
     {
-        $data=Transaksi::all();
-        return view('admin.request', compact('data'));
+        //
     }
 
     /**
@@ -48,8 +45,7 @@ class LogController extends Controller
      */
     public function show($id)
     {
-        $data = Transaksi::find($id);
-        return view('admin.showtransaksi', compact('data'));
+        //
     }
 
     /**
@@ -84,10 +80,5 @@ class LogController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function scopeSearch($query, $name)
-    {
-        return $query->where('token', 'LIKE', "%{$name}%");
     }
 }

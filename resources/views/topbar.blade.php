@@ -11,7 +11,7 @@
         </div>
         <ul class="navbar-nav  justify-content-end">
           <li class="nav-item d-flex align-items-center">
-            <a href="/login" class="btn btn-light">
+            <a href="/login" class="btn bg-gradient-light w-100">
               <span class="d-sm-inline d-none ">Masuk</span>
             </a>
           </li>

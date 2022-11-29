@@ -2,16 +2,20 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
       </div>
       <div class="modal-body">
-        ...
+        {{$data->Nama}}<br>
+        {{$data->NomorTelepon}}<br>
+        {{$data->ruangan->Namaruangan}}<br>
+        {{$data->token}}<br>
+        @if($data->status == null)
+        Belum Disetujui
+        @else
+        Disetujui
+        @endif
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <a href="/adminrequest" class="btn btn-primary">Kembali</a>
       </div>
     </div>
   </div>

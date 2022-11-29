@@ -9,7 +9,7 @@
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
                         <table class = "table text-center">
-                            <div class="position-absolute end-0 translate-middle mt-3">
+                            <div class="psition-absoolute end-0 translate-middle mt-3">
                                 <a href="{{ route('guest.create') }}" class="btn btn-primary btn-sm">Pesan</a><br>
                             </div>
                             <thead>

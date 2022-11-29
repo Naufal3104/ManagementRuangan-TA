@@ -50,6 +50,11 @@
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
                             </div>
+                            <ul>
+                              <ol>
+                                Pemesanan ini khusus untuk warga sekolah
+                              </ol>
+                            </ul>
                           </form>
                     </div>
                 </div>

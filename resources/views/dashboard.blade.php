@@ -8,10 +8,13 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body text-center">
-                      <h2>Pilih Layanan</h2>
+                      <h2>Pilih Layanan</h2><br>  
                         <div class="">    
                             <a href = "/user" class = "btn btn-info btn-lg btn-outline-dark"><i class = "ni ni-circle-08"></i><br>Booking Ruangan</a>
-                            <a href = "/guest" class = "btn btn-danger btn-lg btn-outline-dark"><i class = "ni ni-bulb-61"></i><br>Lihat jadwal ruangan</a>
+                            <a href = "/guest" class = "btn btn-danger btn-lg btn-outline-dark"><i class = "ni ni-zoom-split-in"></i><br>Lihat jadwal ruangan</a>
+                        </div>
+                        <div class="col-ml-12">  
+                          <a href = "https://wa.me/62{{$data->telp}}" class = "btn btn-success btn-lg btn-outline-dark"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
                         </div>
                     </div>
                 </div>
