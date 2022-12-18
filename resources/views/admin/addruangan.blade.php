@@ -22,7 +22,7 @@
                           @csrf 
                             <div class="col-md-12">
                               <label for="Namaruangan" class="form-label">Nama Ruangan</label>
-                              <input type="text" class="form-control" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{old('Namaruangan')}}">
+                              <input type="text" class="form-control" autocomplete="off" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{old('Namaruangan')}}">
                             </div>
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>

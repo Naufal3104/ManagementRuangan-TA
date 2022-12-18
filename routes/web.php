@@ -9,6 +9,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\EditpenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,8 @@ route::middleware('auth')->group(function(){
     Route::resource('/adminrequest', App\Http\Controllers\LogController::class);
 
     Route::resource('/editruangan', App\Http\Controllers\RuanganController::class);
+
+    Route::resource('/editpengguna', App\Http\Controllers\EditpenggunaController::class);
 
     Route::get('/adminedit', function () {
         return view('admin.edit');

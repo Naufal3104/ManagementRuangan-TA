@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jadwal;
+use App\Models\Pengguna;
+use App\Models\Ruangan;
 use Illuminate\Http\Request;
 
 class EditpenggunaController extends Controller
@@ -13,7 +16,9 @@ class EditpenggunaController extends Controller
      */
     public function index()
     {
-        //
+        $data = Jadwal::all()->where('token_transaksi', '==', null);
+        $data1 = Jadwal::all()->where('id_user', '==', null );
+        return view('admin.editpengguna', compact('data', 'data1'));
     }
 
     /**
@@ -23,7 +28,8 @@ class EditpenggunaController extends Controller
      */
     public function create()
     {
-        //
+        $data = Ruangan::all();
+        return view('admin.addpengguna', compact('data'));
     }
 
     /**

@@ -9,7 +9,7 @@
                 <div class = "card shadow mb-2">
                     <div class = "card-body text-center">
                         <h3>Edit Pengguna</h3>
-                        <a href = "" class = "btn btn-success btn-outline-light btn-lg"><i class = "ni ni-bulb-61"></i></a>
+                        <a href = "/editpengguna" class = "btn btn-success btn-outline-light btn-lg"><i class = "ni ni-bulb-61"></i></a>
                     </div>
                 </div>
             </div>

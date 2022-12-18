@@ -2765,7 +2765,7 @@ progress {
 }
 
 .form-control::placeholder {
-  color: #adb5bd;
+  color: rgb(59, 59, 59);
   opacity: 1;
 }
 

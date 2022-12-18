@@ -12,7 +12,7 @@
                         @method('delete')
                         @csrf
                         @endforeach
-                        <button class = "btn btn-info btn-circle btn-lg">Perbarui Jadwal</button>
+                        <button class = "btn btn-info btn-lg"><i class="ni ni-watch-time"></i><br>Perbarui Jadwal</button>
                     </form>
                 </div>
             </div>

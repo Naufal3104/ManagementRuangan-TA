@@ -27,7 +27,7 @@
                             </div>
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
-                              <a href="/editruangan" class="btn btn-danger" value="Simpan">Kembali</a>
+                              <a href="/editruangan" class="btn btn-danger">Kembali</a>
                             </div>
                     </div>
                 </div>

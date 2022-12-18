@@ -1,17 +1,17 @@
 <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Rincian permintaan</h5>
       </div>
       <div class="modal-body">
-        {{$data->Nama}}<br>
-        {{$data->NomorTelepon}}<br>
-        {{$data->ruangan->Namaruangan}}<br>
-        {{$data->token}}<br>
+        Nama : {{$data->Nama}}<br>
+        Nomor telepon : {{$data->NomorTelepon}}<br>
+        Ruangan : {{$data->ruangan->Namaruangan}}<br>
+        Token : {{$data->token}}<br>
         @if($data->status == null)
-        Belum Disetujui
+        Status : Belum Disetujui
         @else
-        Disetujui
+        Status : Disetujui
         @endif
       </div>
       <div class="modal-footer">

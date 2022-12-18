@@ -23,10 +23,13 @@ return new class extends Migration
             $table->foreign('id_user')->references('id')->on('user')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->bigInteger('id_guest')->unsigned()->nullable();
+            $table->foreign('id_guest')->references('id')->on('transaksi')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->dateTime('Waktupenggunaan');
             $table->dateTime('Waktuhingga');
             $table->string('Acara');
-            $table->string('token_transaksi')->nullable();
             $table->timestamps();
         });
     }

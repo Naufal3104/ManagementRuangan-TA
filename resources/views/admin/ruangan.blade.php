@@ -8,6 +8,7 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
+                        <a href="{{ route('editruangan.create') }}" class="btn btn-success">Tambah Ruangan</a>
                         <table class = "table text-center">
                             <thead>
                                 <tr>

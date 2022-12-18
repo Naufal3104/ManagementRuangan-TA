@@ -10,7 +10,7 @@
                     <div class = "card-body text-center">
                       <h2>Pilih Layanan</h2><br>  
                         <div class="">    
-                            <a href = "/user" class = "btn btn-info btn-lg btn-outline-dark"><i class = "ni ni-circle-08"></i><br>Booking Ruangan</a>
+                            <a href = "/order" class = "btn btn-info btn-lg btn-outline-dark"><i class = "ni ni-circle-08"></i><br>Booking Ruangan</a>
                             <a href = "/guest" class = "btn btn-danger btn-lg btn-outline-dark"><i class = "ni ni-zoom-split-in"></i><br>Lihat jadwal ruangan</a>
                         </div>
                         <div class="col-ml-12">  
