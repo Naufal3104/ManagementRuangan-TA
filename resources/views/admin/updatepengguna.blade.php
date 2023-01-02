@@ -9,21 +9,22 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editpengguna.store')}}">
-                          @csrf 
+                        <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editpengguna.update',$jadwal->id)}}">
+                            {{method_field('PUT')}}
+                            @csrf 
                             <h4 class="text-center text-bold">Pilih salah satu</h4>
                             <div class="col-md-6">
                               <label for="id_user" class="form-label">Id User</label>
-                              <input type="text" class="form-control" autocomplete="off" id="id_user" name="id_user" value="{{old('id_user')}}">
+                              <input type="text" class="form-control" autocomplete="off" id="id_user" name="id_user" value="{{$jadwal->id_user}}">
                             </div>
                             <div class="col-md-6">
                               <label for="id_guest" class="form-label">Id Guest</label>
-                              <input type="text" class="form-control" autocomplete="off" id="id_guest" name="id_guest" value="{{old('id_guest')}}">
+                              <input type="text" class="form-control" autocomplete="off" id="id_guest" name="id_guest" value="{{$jadwal->id_guest}}">
                             </div>
                             <div class = "col-md-12">       
                                 <label for = "id_ruangan">Pilih Ruangan</label>
                                   <select type = "text" class = "form-control" id = "id_ruangan" name = "id_ruangan">
-                                      @foreach ($data as $item)
+                                      @foreach ($ruangan as $item)
                                           @if ($item->id_ruangan == $item->id)
                                           <option value ="{{$item->id}}" selected>{{$item->Namaruangan}}</option>
                                           @else
@@ -34,15 +35,15 @@
                             </div>
                             <div class = "col-md-12">
                                 <label for = "Acara">Acara</label>
-                                <input type = "text" class = "form-control" autocomplete="off" id = "Acara" name = "Acara" value = "{{old('Acara')}}">
+                                <input type = "text" class = "form-control" autocomplete="off" id = "Acara" name = "Acara" value = "{{$jadwal->Acara}}">
                               </div>                                                        
                               <div class = "col-md-12">
                                 <label for = "Waktupenggunaan">Waktu Penggunaan</label>
-                                <input type = "datetime-local" class = "form-control" id = "Waktupenggunaan" name = "Waktupenggunaan" value = "{{old('Waktupenggunaan')}}">
+                                <input type = "datetime-local" class = "form-control" id = "Waktupenggunaan" name = "Waktupenggunaan" value = "{{$jadwal->Waktupenggunaan}}">
                               </div>                              
                               <div class = "col-md-12">
                                 <label for = "Waktuhingga">Waktu Hingga</label>
-                                <input type = "datetime-local" class = "form-control" id = "Waktuhingga" name = "Waktuhingga" value = "{{old('Waktuhingga')}}">
+                                <input type = "datetime-local" class = "form-control" id = "Waktuhingga" name = "Waktuhingga" value = "{{$jadwal->Waktuhingga}}">
                               </div>     
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>

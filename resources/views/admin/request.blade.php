@@ -25,11 +25,10 @@
                                             
                                         @endif
                                     <td class="text-center">
-                                        <a class="btn btn-info " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal">Rincian</a>                          
-                                        <a class="btn btn-success " href="">Izinkan</a>                          
+                                        <a class="btn btn-info " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal">Rincian</a>
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Izinkan</button>                          
                                         <a class="btn btn-warning " href="">Hapus</a>                          
                                     </td>
-                                    @endforeach
                                     @csrf
                                 </tr>
                             </tbody>
@@ -40,7 +39,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade modal-transaksi" id="requestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal modal-transaksi" id="requestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 </div>
 <script>
@@ -52,3 +51,25 @@
 </script>
 @endsection
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Izinkan Transaksi</h5>
+        </div>
+        <div class="modal-body">
+          <form method = "POST" enctype  = "multipart/form-data" action="{{route('adminrequest.update',$item->id)}}">
+            {{method_field('PUT')}}
+             @csrf
+            Izinkan pemesanan ruangan?
+            <input type="hidden" class="form-control" id="Status" name="Status" value="1">
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success" value="Simpan">Izinkan</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Batalkan</button>
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+@endforeach

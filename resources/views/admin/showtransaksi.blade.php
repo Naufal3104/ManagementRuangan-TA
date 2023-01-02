@@ -15,7 +15,7 @@
         @endif
       </div>
       <div class="modal-footer">
-        <a href="/adminrequest" class="btn btn-primary">Kembali</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
       </div>
     </div>
   </div>

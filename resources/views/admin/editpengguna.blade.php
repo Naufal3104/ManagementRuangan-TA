@@ -26,9 +26,13 @@
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->user->Namapengguna}}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary"><i class="ni ni-bulb-61"></i></a>  
-                                        <a href="" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
-                                        <a href="" class="btn btn-danger"><i class="ni ni-fat-delete"></i></a>  
+                                        <a href="editpengguna/{{ $item->id}}" class="btn btn-primary"><i class="ni ni-bulb-61"></i></a>  
+                                        <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
+                                        <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-danger"><i class="ni ni-fat-delete"></i></button>      
+                                        </form> 
                                     </td>    
                                     @endforeach
                                 </tr>
@@ -41,7 +45,7 @@
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
                         <table class = "table text-center">
-                            <h4 class="text-center">Ruangan dengan Guest |  <a href="" class="text-success">Tambah data</a></h4>
+                            <h4 class="text-center">Ruangan dengan Guest |  <a href="{{route('editpengguna.create')}}" class="text-success">Tambah data</a></h4>
                             <thead>
                                 <tr>
                                     <th scope = "col">No.</th>
@@ -55,12 +59,16 @@
                                 <tr>
                                     @foreach ($data1 as $item)
                                     <th scope = "row">{{ $i++}}</th>
-                                    <td>{{$item->Namaruangan}}</td>
-                                    <td>{{$item->Waktupenggunaan}} - {{$item->Waktuhingga}}</td>
+                                    <td>{{$item->ruangan->Namaruangan}}</td>
+                                    <td>{{$item->transaksi->Nama}}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary"><i class="ni ni-bulb-61"></i></a>  
-                                        <a href="" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
-                                        <a href="" class="btn btn-danger"><i class="ni ni-fat-delete"></i></a>      
+                                        <a href="editpengguna/{{ $item->id}}" class="btn btn-primary"><i class="ni ni-bulb-61"></i></a>  
+                                        <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
+                                        <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-danger"><i class="ni ni-fat-delete"></i></button>      
+                                        </form>
                                     </td>                                    
                                     @endforeach
                                 </tr>

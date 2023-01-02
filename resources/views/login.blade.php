@@ -74,7 +74,7 @@
             <form class="user" action='login' method="post">
                 @csrf
                 <div class="mb-3">
-                    <input type="name" class="form-control form-control-user" id="name" name="name" placeholder="Username">
+                    <input type="name" autocomplete="off" class="form-control form-control-user" id="name" name="name" placeholder="Username">
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
@@ -83,6 +83,15 @@
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Login</button>
                   <a href="/" class="btn bg-gradient-danger w-100 my-4 mb-2">Cancel</a>
                 </div>
+                @if (count($errors) > 0)
+                  <div class = "text-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                  </div>
+                 @endif
               </form>
             </div>
           </div>

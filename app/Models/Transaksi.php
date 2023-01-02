@@ -20,4 +20,7 @@ class Transaksi extends Model
     public function ruangan(){
         return $this->belongsTo(Ruangan::class, 'id_ruangan', 'id');
     }
+    public function jadwal(){
+        return $this->hasMany(Jadwal::class, 'id_guest', 'id');
+    }
 }

@@ -72,7 +72,16 @@ class LogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // $messages = [
+        //     'required' =>':attribute harus diisi terlebih dahulu'
+        // ];
+        // $this->validate ($request,[
+        //     'Status' => 'required',         
+        // ],$messages);
+        $transaksi=Transaksi::find($id);
+        $transaksi->Status = $request->Status;
+        $transaksi->save();
+        return redirect('adminrequest');
     }
 
     /**
@@ -83,7 +92,8 @@ class LogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Transaksi::find($id)->delete();
+        return redirect('adminrequest');
     }
 
     public function scopeSearch($query, $name)

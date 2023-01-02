@@ -21,9 +21,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'name' => 'Username salah',
-            'password' => 'Password salah'
-        ])->onlyInput('email');
+            'name|password' => 'Username atau Password salah'
+            ])->onlyInput('email');
     }
 
     public function logout(Request $request){

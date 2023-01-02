@@ -11,6 +11,7 @@ class Jadwal extends Model
     protected $fillable = [
         'id_ruangan',
         'id_user',
+        'id_guest',
         'Waktupenggunaan',
         'Waktuhingga',
         'Acara'
@@ -22,5 +23,8 @@ class Jadwal extends Model
     }
     public function user(){
         return $this->belongsTo(Pengguna::class, 'id_user', 'id');
+    }
+    public function transaksi(){
+        return $this->belongsTo(Transaksi::class, 'id_guest', 'id');
     }
 }
