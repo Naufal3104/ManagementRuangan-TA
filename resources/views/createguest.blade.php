@@ -30,7 +30,7 @@
                             </div>                            
                             <div class = "form-group">
                                 <label for = "id_ruangan">Ruangan</label>
-                            <select type = "text" class = "form-control" id = "id_ruangan" name = "id_ruangan" value = "{{old('id_ruangan')}}">
+                            <select type = "text" class = "form-control form-select" id = "id_ruangan" name = "id_ruangan" value = "{{old('id_ruangan')}}">
                                 <option selected ></option>
                                 @foreach ($data as $item)
                                 <option value = {{$item->id}}>{{$item->Namaruangan}}</option>
@@ -42,8 +42,8 @@
                             </div>
                             <div class="col-12">
                               <ul>
-                                <li>Setelah disetujui oleh pihak sekolah, mohon datang ke ruang Tata Usaha SMKN 1 Surabaya untuk melakukan pembayaran</li>
                                 <li>Peminjaman ruangan sekolah akan disetujui bila tidak ada kegiatan pada hari itu di ruangan tersebut</li>
+                                <li>Setelah disetujui oleh pihak sekolah, mohon datang ke ruang Tata Usaha SMKN 1 Surabaya untuk melakukan pembayaran</li>
                               </ul>
                             </div>
                           </form>

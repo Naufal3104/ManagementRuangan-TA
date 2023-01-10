@@ -1,4 +1,4 @@
-@extends('admin.app')
+{{-- @extends('admin.app')
 @section('title','Edit')
 @section('content-title','Show Pengguna')
 @section('content')
@@ -8,18 +8,45 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <h2 class="text-center">{{$data->ruangan->Namaruangan}}</h2>
-                        <h3>Tipe pengguna</h3>
+                        <h3 class="text-center">{{$data->ruangan->Namaruangan}}</h3>
+                        <h4>Tipe pengguna</h4>
                         @if($data->id_guest == null)
-                        <p>Warga sekolah</p>
+                        <p class="font-weight-bold">Warga sekolah</p>
                         @else
                         <p>Warga luar</p>
                         @endif
-                        <h3>Nama pengguna</h3>
+                        <h4>Nama pengguna</h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rincian penggunaan</h5>
+      </div>
+      <div class="modal-body">       
+        @if($data->id_user == null)
+        Guest<br>
+        Nama    :   {{$data->transaksi->Nama}}<br>
+        Nomor Telepon   :   {{$data->transaksi->NomorTelepon}}<br>
+        Ruangan :   {{$data->ruangan->Namaruangan}} 
+        @else
+        User<br> 
+        Nama    :   {{$data->user->Namapengguna}}<br>
+        Nomor Telepon   :   {{$data->user->Nomortelepon}}<br>
+        Nisn    :   {{$data->user->NISN}}<br>
+        Jenis Kelamin   :   {{$data->user->JK}}<br>
+        Alamat  :   {{$data->user->Alamat}}<br>
+        Ruangan :   {{$data->ruangan->Namaruangan}} 
+        @endif
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>

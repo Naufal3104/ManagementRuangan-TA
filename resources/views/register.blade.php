@@ -23,7 +23,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="./assets/img/logosmk.png">
   <title>
-    Login
+    Register
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -52,37 +52,37 @@
   </nav>
   <!-- End Navbar -->
   <main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-50 pt-6 pb-11 m-2 border-radius-lg">
-      <span class="mask"></span>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-5 text-center mx-auto">
-            <h1 class="text-white mb-2 mt-5">Selamat datang</h1>
-          </div>
-        </div>
-      </div>
+    <div class="page-header align-items-start min-vh-25 pt-6 pb-11 m-2 border-radius-lg">
     </div>
     <span class="mask bg-gradient-dark"></span>
     <div class="container">
-      <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+      <div class="row mt-lg-n10 mt-md-n11 mt-n10  justify-content-center">
+        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto ">
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
-              <h5>Login</h5>
+              <h5>Register</h5>
             </div>
             <div class="card-body">
-            <form class="user" action='login' method="post">
+            <form class="user" action='/register/create' method = "POST" enctype  = "multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <input type="name" autocomplete="off" class="form-control form-control-user" id="name" name="name" placeholder="Username">
+                    <input type="name" autocomplete="off" class="form-control form-control-user" id="name" name="name" value="{{old('name')}}" placeholder="Username">
                 </div>
                 <div class="mb-3">
-                    <input type="password" autocomplete="off" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                  <input type="email" autocomplete="off" class="form-control form-control-user" id="email" name="email" value="{{old('email')}}" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                  <input type="tel" autocomplete="off" class="form-control form-control-user" id="telp" name="telp" value="{{old('telp')}}" placeholder="Nomor telepon">
+                </div>
+                <div class="mb-3">
+                    <input type="password" autocomplete="off" class="form-control form-control-user" id="password" name="password" value="{{old('password')}}" placeholder="Password">
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn bg-gradient-dark w-100 mt-4">Login</button>
+                  <button type="submit" class="btn bg-gradient-dark w-100 mt-4">Register</button>
                   <a href="/" class="btn bg-gradient-danger w-100">Cancel</a>
                 </div>
+              </form>
+              <a href="/login" class="text-center">Sudah punya akun?</a>
                 @if (count($errors) > 0)
                   <div class = "text-danger">
                     <ul>
@@ -92,7 +92,13 @@
                     </ul>
                   </div>
                  @endif
-              </form>
+                 @if (\Session::has('success'))
+                    <div class="alert alert-success text-center">
+                      <ul>
+                        <ol class="col-mr-2">{!!\Session::get('success')!!}</ol>
+                      </ul>
+                    </div>
+                 @endif
             </div>
           </div>
         </div>

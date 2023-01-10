@@ -95,9 +95,4 @@ class LogController extends Controller
         $data = Transaksi::find($id)->delete();
         return redirect('adminrequest');
     }
-
-    public function scopeSearch($query, $name)
-    {
-        return $query->where('token', 'LIKE', "%{$name}%");
-    }
 }

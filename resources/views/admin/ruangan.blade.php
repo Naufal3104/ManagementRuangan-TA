@@ -2,7 +2,7 @@
 @section('title','Edit')
 @section('content-title','Edit Ruangan')
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-fluid py-4 mt-4">
     <div class="row">
         <div class = "row">
             <div class = "col-lg-12">

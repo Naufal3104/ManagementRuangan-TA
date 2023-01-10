@@ -2,7 +2,7 @@
 @section('title','Dashboard')
 @section('content-title','Dashboard')
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-fluid py-4 mt-4">
     <div class = "row">
         <div class = "col-lg-12">
             <div class = "card shadow">
@@ -19,7 +19,7 @@
         </div>
     </div>    
 </div>
-  <div class="container-fluid py-4">
+  <div class="container-fluid">
     <div class = "row">
         <div class = "col-lg-12">
             <div class = "card shadow ">

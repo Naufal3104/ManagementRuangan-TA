@@ -15,7 +15,7 @@
                             <thead>
                             <?php
                             date_default_timezone_set("Asia/Jakarta");
-                            echo "Pukul".date(" h:i a",strtotime('-840 minutes'));
+                            echo "Pukul".date(" h:i a",strtotime('-720 minutes'));
                             ?>
                             
                                 <tr>

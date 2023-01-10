@@ -2,7 +2,7 @@
 @section('title','Edit')
 @section('content-title','Edit Pengguna')
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-fluid py-4 mt-4">
     <div class="row">
         <div class = "row">
             <div class = "col-lg-6">
@@ -20,13 +20,13 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1?>
+                                @foreach ($data as $item)
                                 <tr>
-                                    @foreach ($data as $item)
                                     <th scope = "row">{{ $i++}}</th>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->user->Namapengguna}}</td>
                                     <td>
-                                        <a href="editpengguna/{{ $item->id}}" class="btn btn-primary"><i class="ni ni-bulb-61"></i></a>  
+                                        <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal"><i class="ni ni-bulb-61"></i></a>
                                         <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
                                         <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline">
                                             @method('delete')
@@ -56,13 +56,13 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1?>
+                                @foreach ($data1 as $item)
                                 <tr>
-                                    @foreach ($data1 as $item)
                                     <th scope = "row">{{ $i++}}</th>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->transaksi->Nama}}</td>
                                     <td>
-                                        <a href="editpengguna/{{ $item->id}}" class="btn btn-primary"><i class="ni ni-bulb-61"></i></a>  
+                                        <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal"><i class="ni ni-bulb-61"></i></a>
                                         <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
                                         <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline">
                                             @method('delete')
@@ -80,4 +80,14 @@
         </div>
     </div>
 </div>
+<div class="modal modal-transaksi" id="requestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+</div>
+<script>
+    function show(id){
+        $.get('/editpengguna/'+id, function(data){
+            $('.modal-transaksi').html(data);
+        })
+    }
+</script>
 @endsection

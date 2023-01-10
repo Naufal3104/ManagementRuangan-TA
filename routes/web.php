@@ -3,13 +3,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdmindashboardController;
-use App\Http\Controllers\LogController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GuestController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\PenggunaController;
-use App\Http\Controllers\EditpenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +36,10 @@ Route::post('/user/store', [PenggunaController::class, 'store']);
 Route::get('login', [LoginController::class, 'login'])->name('login');
 
 Route::post('login',[LoginController::class, 'authenticate']);
+
+Route::get('/register', [LoginController::class, 'register']);
+
+Route::post('/register/create', [LoginController::class, 'create']);
 
 Route::post('logout',[LoginController::class, 'logout'])->name('logout')->middleware('auth');
 

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 class LoginController extends Controller
 {
     public function login(){
@@ -31,6 +35,34 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+    
+    public function register(){
+        return view('register');
+    }
+
+    public function create(Request $request)
+    {   
+        $messages = [
+            'required' =>':attribute harus diisi terlebih dahulu',
+            'numeric' =>':attribute harus diisi angka',
+            'email' =>':attribute harus berupa @gmail,@yahoo etc.',
+            'min' => ':attribute harus :min karakter'
+        ];
+        $this->validate ($request,[
+            'name' => 'required|min:8',     
+            'email' => 'required|email',     
+            'password' => 'required|min:8',     
+            'telp' => 'required|min:9|numeric'     
+        ],$messages);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'telp' => $request->telp,
+            'password' =>Hash::make($request->password)
+        ]);
+        return redirect()->back()->with('success','Registrasi berhasil');
+    }
 }
 
 // App\Models\User::create([
@@ -38,4 +70,10 @@ class LoginController extends Controller
 //     'email' => 'admin@gmail.com',
 //     'telp' => '81554336723',
 //     'password' => bcrypt('admin')
+// ]);
+
+// return Validator::make($data, [
+//     'name' => ['required', 'string', 'max:255'],
+//     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//     'password' => ['required', 'string', 'min:8', 'confirmed'],
 // ]);

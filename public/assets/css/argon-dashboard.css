@@ -596,7 +596,7 @@ progress {
 
 @media (min-width: 1200px) {
   .display-6 {
-    font-size: 2.5rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -6464,7 +6464,9 @@ fieldset:disabled .btn {
 
 .modal-backdrop {
   --bs-backdrop-zindex: 1040;
-  --bs-backdrop-opacity: 0.5;
+  --bs-backdrop-bg: #000;
+  --bs-backdrop-opacity: 0.3 !important;
+  opacity: 0.3;
   position: fixed;
   top: 0;
   left: 0;
@@ -8477,8 +8479,15 @@ fieldset:disabled .btn {
   top: 10% !important;
 }
 
+.top-25 {
+  top: 25% !important;
+}
+
 .top-50 {
   top: 50% !important;
+}
+.top-55 {
+  top: 55% !important;
 }
 
 .top-100 {
@@ -8583,6 +8592,10 @@ fieldset:disabled .btn {
 
 .start-50 {
   left: 50% !important;
+}
+
+.start-90 {
+  left: 90% !important;
 }
 
 .start-100 {
@@ -8887,6 +8900,10 @@ fieldset:disabled .btn {
 
 .w-100 {
   width: 100% !important;
+}
+
+.w-120 {
+  width: 120% !important;
 }
 
 .w-auto {

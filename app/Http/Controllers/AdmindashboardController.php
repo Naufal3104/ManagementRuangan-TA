@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Ruangan;
 use App\Models\Pengguna;
 use App\Models\Jadwal;
+use DateTime;
 use Illuminate\Http\Request;
 
 class AdmindashboardController extends Controller
@@ -84,7 +85,9 @@ class AdmindashboardController extends Controller
      */
     public function destroy($id)
     {
-        $jadwal = Jadwal::find($id)->whereDate('Waktuhingga', '<=', date("Y-m-d h:i:00 "))->delete();
+        $waktu = date("Y-m-d h:i:00 ");
+        // dd($waktu);
+        $jadwal = Jadwal::find($id)->whereDate('Waktuhingga', '<', $waktu)->delete();
         return redirect('/admin');
     }
 }

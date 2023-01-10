@@ -33,7 +33,7 @@
                             </div>                            
                             <div class = "form-group">
                                 <label for = "JK">Jenis Kelamin</label>
-                            <select type = "text" class = "form-control" id = "JK" name = "JK" value = "{{old('JK')}}">
+                            <select type = "text" class = "form-control form-select" id = "JK" name = "JK" value = "{{old('JK')}}">
                               <option selected ></option>
                               <option value = "Laki-laki">Laki-laki</option>
                               <option value = "Perempuan">Perempuan</option>

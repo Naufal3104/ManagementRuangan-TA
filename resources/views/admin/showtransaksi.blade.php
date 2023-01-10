@@ -6,9 +6,9 @@
       <div class="modal-body">
         Nama : {{$data->Nama}}<br>
         Nomor telepon : {{$data->NomorTelepon}}<br>
-        Ruangan : {{$data->ruangan->Namaruangan}}<br>
+        Pengajuan Ruangan : {{$data->ruangan->Namaruangan}}<br>
         Token : {{$data->token}}<br>
-        @if($data->status == null)
+        @if($data->Status == null)
         Status : Belum Disetujui
         @else
         Status : Disetujui
