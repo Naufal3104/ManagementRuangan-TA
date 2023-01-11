@@ -25,8 +25,7 @@ class RuanganController extends Controller
      */
     public function create()
     {
-        $data = Ruangan::all();
-        return view('admin.addruangan', compact('data'));
+        
     }
 
     /**

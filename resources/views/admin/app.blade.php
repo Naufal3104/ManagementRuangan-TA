@@ -14,6 +14,27 @@
 <body class="g-sidenav-show bg-gray-100">
 @include('admin.sidebar')
 @include('admin.topbar')
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModal">Tambahkan Ruangan</h5>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form method = "POST" enctype  = "multipart/form-data" action="{{route('editruangan.store')}}">
+              @csrf 
+              <input type="text" class="form-control" autocomplete="off" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{old('Namaruangan')}}">
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
   @yield('content')
 </main>
 

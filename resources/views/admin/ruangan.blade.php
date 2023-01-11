@@ -8,7 +8,12 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <a href="{{ route('editruangan.create') }}" class="btn btn-success">Tambah Ruangan</a>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">Tambah Ruangan</button>
+                        @if (count($errors) > 0)
+                              @foreach($errors->all() as $error)
+                              <p class="text-danger">{{ $error }}</p>
+                              @endforeach
+                         @endif
                         <table class = "table text-center">
                             <thead>
                                 <tr>
