@@ -21,8 +21,8 @@ class Pengguna extends Model
     public function transaksi(){
         return $this->hasMany(Transaksi::class, 'id_transaksi', 'id');
     }
-    public function event(){
-        return $this->hasMany(Event::class, 'id_jadwal', 'id');
+    public function jadwal(){
+        return $this->hasMany(Jadwal::class, 'id_jadwal', 'id');
     }
 
 }

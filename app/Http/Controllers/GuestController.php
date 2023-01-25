@@ -46,7 +46,7 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        
+ 
         $messages = [
             'required' =>':attribute harus diisi terlebih dahulu',
             'numeric' =>':attribute harus diisi angka',
@@ -60,7 +60,6 @@ class GuestController extends Controller
             'alamat' => 'required',     
             'tanggal_penggunaan' => 'required|date',     
         ],$messages);
-        
         Transaksi::create([
             'Nama' => $request->Nama,
             'NomorTelepon' => $request->NomorTelepon,

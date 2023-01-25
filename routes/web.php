@@ -6,6 +6,7 @@ use App\Http\Controllers\AdmindashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,5 @@ route::middleware('auth')->group(function(){
         return view('admin.edit');
     });
 });
+
+

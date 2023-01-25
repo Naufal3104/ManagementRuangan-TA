@@ -35,7 +35,7 @@
                             </div>                     
                             <div class="col-md-6">
                               <label for="tanggal_penggunaan" class="form-label">Tanggal Penggunaan</label>
-                              <input type="date" class="form-control" placeholder="Tanggal Penggunaan" id="tanggal_penggunaan" name="tanggal_penggunaan" value="{{old('tanggal_penggunaan')}}">
+                              <input type="date" name="tanggal_penggunaan" id="tanggal_penggunaan" class="form-control" value="{{old('tanggal_penggunaan')}}">
                             </div>                     
                             <div class = "form-group">
                                 <label for = "id_ruangan">Ruangan</label>
@@ -69,3 +69,17 @@
     </div>
 </div>
 @endsection
+
+<script>
+
+  
+  //    	  $('.date_pick').datetimepicker({
+	// format: 'DD/MM/YYYY',			
+  //              pickTime: false
+              
+  //           });
+            
+  //        $('.time_pick').datetimepicker({
+	// 		pickDate: false
+  //           }); 
+</script>

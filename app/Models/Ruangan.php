@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
-use Latfur\Event\Models\Event;
 
 class Ruangan extends Model
 {
@@ -21,7 +20,7 @@ class Ruangan extends Model
     public function transaksi(){
         return $this->hasMany(Transaksi::class, 'id_transaksi', 'id');
     }
-    public function event(){
-        return $this->hasMany(Event::class, 'id_jadwal', 'id');
+    public function jadwal(){
+        return $this->hasMany(Jadwal::class, 'id_jadwal', 'id');
     }
 }
