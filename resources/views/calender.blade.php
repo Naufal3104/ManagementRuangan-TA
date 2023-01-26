@@ -146,7 +146,7 @@ $(document).ready(function () {
                 success:function(response)
                 {
                     calendar.fullCalendar('refetchEvents');
-                    alert("Event Updated Successfully");
+                    alert("Acara berhasil diperbarui");
                 }
             })
         },
@@ -158,7 +158,7 @@ $(document).ready(function () {
             var id = event.id;
             $.ajax({
                 url:"/full-calender/save",
-                type:"GET",
+                type:"POST",
                 data:{
                     title: title,
                     start: start,
@@ -169,7 +169,7 @@ $(document).ready(function () {
                 success:function(response)
                 {
                     calendar.fullCalendar('refetchEvents');
-                    alert("Event Updated Successfully");
+                    alert("Acara berhasil diperbarui");
                 }
             })
         },

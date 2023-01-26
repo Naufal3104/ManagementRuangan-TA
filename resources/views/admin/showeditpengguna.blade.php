@@ -33,20 +33,22 @@
         @if($data->id_user == null)
         Guest<br>
         Nama    :   {{$data->transaksi->Nama}}<br>
-        Nomor Telepon   :   {{$data->transaksi->NomorTelepon}}<br>
+        Nomor Telepon   :   {{$data->transaksi->NomorTelepon}}<br><br>
         Ruangan :   {{$data->ruangan->Namaruangan}}<br> 
-        Waktu penggunaan  : {{$data->Waktuhingga}}<br>
-        Waktuhingga : {{$data->Waktuhingga}}
+        Acara : {{$data->title}}<br>
+        Waktu penggunaan  : {{$data->start}}<br>
+        Waktu hingga : {{$data->end}}
         @else
         User<br> 
         Nama    :   {{$data->user->Namapengguna}}<br>
         Nomor Telepon   :   {{$data->user->Nomortelepon}}<br>
         NISN/NRG    :   {{$data->user->nisn}}<br>
         Jenis Kelamin   :   {{$data->user->jeniskelamin}}<br>
-        Alamat  :   {{$data->user->Alamat}}<br>
+        Alamat  :   {{$data->user->Alamat}}<br><br>
         Ruangan :   {{$data->ruangan->Namaruangan}} <br>
-        Waktu penggunaan  : {{$data->Waktuhingga}}<br>
-        Waktuhingga : {{$data->Waktuhingga}}
+        Acara : {{$data->title}}<br>
+        Waktu penggunaan  : {{$data->start}}<br>
+        Waktu hingga : {{$data->end}}
         @endif
       </div>
       <div class="modal-footer">

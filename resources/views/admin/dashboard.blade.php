@@ -12,7 +12,7 @@
                         @method('delete')
                         @csrf
                         @endforeach
-                        <button class = "btn btn-info btn-lg"><i class="ni ni-watch-time"></i><br>Perbarui Jadwal</button>
+                        <button class = "btn btn-info btn-lg w-25"><i class="ni ni-watch-time"></i><br>Perbarui Jadwal</button>
                     </form>
                 </div>
             </div>
@@ -40,8 +40,8 @@
                             <tr>
                                 <th scope = "row">{{ $i++}}</th>
                                 <td>{{$item->ruangan->Namaruangan}}</td>
-                                <td>{{$item->Waktupenggunaan}} - {{$item->Waktuhingga}}</td>
-                                <td>{{$item->Acara}}</td>                                
+                                <td>{{$item->start}} - {{$item->end}}</td>
+                                <td>{{$item->title}}</td>                              
                                 @endforeach
                                 @csrf
                             </tr>
@@ -51,5 +51,6 @@
             </div>
         </div>
     </div>
-</div>
+</div>  
 @endsection
+

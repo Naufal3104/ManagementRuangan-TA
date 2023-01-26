@@ -9,6 +9,7 @@
                 <div class = "card shadow mb-4">
                     <div class = "card-body text-center">
                         <h1 class="fw-bold">{{$event->ruangan->Namaruangan}}</h1>
+                        <img src="{{asset('/template/img/'.$event->ruangan->foto)}}" alt="image" width="410" class="rounded-circle img-thumbnail mt-4" />
                     </div>
                 </div>
             </div>

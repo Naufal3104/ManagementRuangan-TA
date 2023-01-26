@@ -22,7 +22,7 @@ class EventController extends Controller
     	return view('calender',compact('ruangan'));
     }
 
-    public function action(Request $request, $id)
+    public function action(Request $request)
     {
 		if($request->ajax())
     	{

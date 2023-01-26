@@ -3911,7 +3911,7 @@ fieldset:disabled .btn {
 .btn-outline-light {
   --bs-btn-color: #344767;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #344767;
+  --bs-btn-hover-bg: #000000;
   --bs-btn-hover-border-color: #344767;
   --bs-btn-focus-shadow-rgb: 52, 71, 103;
   --bs-btn-active-color: #fff;
@@ -20663,7 +20663,7 @@ fieldset:disabled .btn {
   background-color: transparent;
   opacity: .75;
   box-shadow: none;
-  color: #e9ecef;
+  color: #000000;
 }
 
 .btn-dark:hover,

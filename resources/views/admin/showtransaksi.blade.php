@@ -4,9 +4,8 @@
         <h5 class="modal-title" id="exampleModalLabel">Rincian permintaan</h5>
       </div>
       <div class="modal-body">
-        ID  : {{$data->id}}<br>
+        ID Transaksi : {{$data->id}}<br>
         Nama : {{$data->Nama}}<br>
-        Id Guest  : {{$data->id}}<br>
         Nomor telepon : {{$data->NomorTelepon}}<br>
         Pengajuan Ruangan : {{$data->ruangan->Namaruangan}}<br>
         Token : {{$data->token}}<br>

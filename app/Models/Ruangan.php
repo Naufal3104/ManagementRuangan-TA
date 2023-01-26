@@ -11,8 +11,7 @@ class Ruangan extends Model
     use HasFactory;
     protected $fillable = [
         'Namaruangan',
-        'Waktupenggunaan',
-        'WaktuHingga'
+        'foto'
     ];
 
     

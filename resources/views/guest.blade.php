@@ -31,8 +31,8 @@
                                 <tr>
                                     <th scope = "row">{{ $i++}}</th>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
-                                    <td>{{$item->Waktupenggunaan}} - {{$item->Waktuhingga}}</td>
-                                    <td>{{$item->Acara}}</td>
+                                    <td>{{$item->start}} - {{$item->end}}</td>
+                                    <td>{{$item->title}}</td>
                                     @endforeach
                                     @csrf
                                 </tr>

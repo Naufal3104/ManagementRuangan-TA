@@ -24,6 +24,9 @@
                               <label for="Namaruangan" class="form-label">Nama Ruangan</label>
                               <input type="text" class="form-control" autocomplete="off" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{old('Namaruangan')}}">
                             </div>
+                            <div class="col-md-12">
+                              <label for="foto" class="form-label">Foto ruangan(opsional)</label>
+                              <input class = "form-control-file" type = "file" class = "form-control" id = "foto" name = "foto" value = "{{old('foto')}}">                            </div>
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
                               <a href="/editruangan" class="btn btn-danger" value="Simpan">Kembali</a>

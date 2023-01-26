@@ -37,3 +37,4 @@
     </ul>
   </div>
 </aside>
+<main class="main-content position-relative border-radius-lg">

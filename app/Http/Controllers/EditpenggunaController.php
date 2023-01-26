@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jadwal;
+use App\Models\Event;
 use App\Models\Pengguna;
 use App\Models\Ruangan;
 use App\Models\Transaksi;
@@ -20,8 +20,8 @@ class EditpenggunaController extends Controller
      */
     public function index()
     {
-        $data = Jadwal::all()->where('id_guest', '==', null);
-        $data1 = Jadwal::all()->where('id_user', '==', null );
+        $data = Event::all()->where('id_transaksi', '==', null);
+        $data1 = Event::all()->where('id_user', '==', null );
         return view('admin.editpengguna', compact('data', 'data1'));
     }
 
@@ -56,23 +56,26 @@ class EditpenggunaController extends Controller
 
         $this->validate ($request,[
             'id_ruangan' => 'required',
-            'id_user' => 'required_without:id_guest',
-            'id_guest' => 'prohibited_unless:id_user,==,null',
-            'Waktupenggunaan' => 'required',
-            'Waktuhingga' => 'required|after:Waktupenggunaan',
-            'Acara' => 'required'         
+            'id_user' => 'required_without:id_transaksi',
+            'id_transaksi' => 'prohibited_unless:id_user,==,null',
+            'start' => 'required',
+            'end' => 'required|after:Waktupenggunaan',
+            'title' => 'required'         
         ],$messages);
-
-        if(Transaksi::find($request->id_guest)->Status == null){
-            return redirect()->back()->with('error', 'Guest ini belum melakukan konfirmasi ataupun pembayaran');
+        
+        if(!empty($request->input('id_transaksi'))) {
+            if(Transaksi::find($request->id_transaksi)->Status == null){
+                return redirect()->back()->with('error', 'Guest ini belum melakukan konfirmasi ataupun pembayaran');
+            }
         }
-        Jadwal::create([
+
+        Event::create([
             'id_ruangan' => $request->id_ruangan,                  
             'id_user' => $request->id_user,
-            'id_guest' => $request->id_guest,
-            'Waktupenggunaan' => $request->Waktupenggunaan,
-            'Waktuhingga' => $request->Waktuhingga,
-            'Acara' => $request->Acara,                    
+            'id_transaksi' => $request->id_transaksi,
+            'start' => $request->start,
+            'end' => $request->end,
+            'title' => $request->title,                    
         ]);
         return redirect('editpengguna');
 
@@ -87,7 +90,7 @@ class EditpenggunaController extends Controller
      */
     public function show($id)
     {
-        $data = Jadwal::find($id);
+        $data = Event::find($id);
         return view('admin.showeditpengguna', compact('data'));
     }
 
@@ -100,8 +103,8 @@ class EditpenggunaController extends Controller
     public function edit($id)
     {
         $ruangan = Ruangan::all();
-        $jadwal = Jadwal::find($id);
-        return view('admin.updatepengguna', compact('ruangan','jadwal'));
+        $event = Event::find($id);
+        return view('admin.updatepengguna', compact('ruangan','event'));
     }
 
     /**
@@ -121,21 +124,21 @@ class EditpenggunaController extends Controller
         ];
         $this->validate ($request,[
             'id_ruangan' => 'required',
-            'id_user' => 'required_without:id_guest',
-            'id_guest' => 'prohibited_unless:id_user,==,null',
-            'Waktupenggunaan' => 'required',
-            'Waktuhingga' => 'required|after:Waktupenggunaan',
-            'Acara' => 'required'         
+            'id_user' => 'required_without:id_transaksi',
+            'id_transaksi' => 'prohibited_unless:id_user,==,null',
+            'start' => 'required',
+            'end' => 'required|after:Waktupenggunaan',
+            'title' => 'required'         
         ],$messages);
 
-        $jadwal=Jadwal::find($id);
-        $jadwal->id_ruangan = $request->id_ruangan;                  
-        $jadwal->id_user = $request->id_user;                  
-        $jadwal->id_guest = $request->id_guest;                  
-        $jadwal->Waktupenggunaan = $request->Waktupenggunaan;                  
-        $jadwal->Waktuhingga = $request->Waktuhingga;                  
-        $jadwal->Acara = $request->Acara;                  
-        $jadwal->save();
+        $event=Event::find($id);
+        $event->id_ruangan = $request->id_ruangan;                  
+        $event->id_user = $request->id_user;                  
+        $event->id_transaksi = $request->id_transaksi;                  
+        $event->start = $request->start;                  
+        $event->end = $request->end;                  
+        $event->title = $request->title;                  
+        $event->save();
         return redirect('editpengguna');
     }
 
@@ -147,7 +150,7 @@ class EditpenggunaController extends Controller
      */
     public function destroy($id)
     {
-        $data=Jadwal::find($id)->delete();
+        $data=Event::find($id)->delete();
         return redirect('editpengguna');
     }
 }

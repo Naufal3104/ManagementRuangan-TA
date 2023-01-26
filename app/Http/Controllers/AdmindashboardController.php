@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Ruangan;
 use App\Models\Pengguna;
-use App\Models\Jadwal;
+use App\Models\Event;
 use DateTime;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdmindashboardController extends Controller
@@ -16,7 +17,7 @@ class AdmindashboardController extends Controller
      */
     public function index()
     {
-        $data1 = Jadwal::all();
+        $data1 = Event::all();
         return view('admin.dashboard', compact('data1'));
     }
 
@@ -85,9 +86,12 @@ class AdmindashboardController extends Controller
      */
     public function destroy($id)
     {
-        $waktu = date("Y-m-d h:i:00 ");
+        $waktu = date("Y-m-d h:i:00");
+        $carbon =  Carbon::now();
         // dd($waktu);
-        $jadwal = Jadwal::find($id)->whereDate('Waktuhingga', '<', $waktu)->delete();
+        $jadwal = Event::find($id)->whereDate('end', '<', $waktu)->delete();
+        // $jadwal = Event::find($id)->whereDate('end', '<', $carbon->subYears(1))->get()->delete();
         return redirect('/admin');
     }
+    
 }

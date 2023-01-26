@@ -17,7 +17,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle btn btn-light w-120" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small text-dark display-6 font-weight-bold">Hi, {{auth()->user()->name}}</span>
+                    <span class="mr-2 d-sm-inline d-none">Hi, {{auth()->user()->name}}</span>
               </a>
             <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -29,7 +29,7 @@
                 </div>
               </li>
             </ul>
-          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+          <li class="ml-5 nav-item d-xl-none ps-3 d-flex align-items-center">
             <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
               <div class="sidenav-toggler-inner">
                 <i class="sidenav-toggler-line bg-white"></i>

@@ -3,7 +3,6 @@
 @section('content-title','Request')
 @section('content')
 <div class="container-fluid py-4 mt-4">
-    <div class="row">
         <div class = "row">
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
@@ -73,7 +72,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 <div class="modal modal-transaksi" id="requestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 

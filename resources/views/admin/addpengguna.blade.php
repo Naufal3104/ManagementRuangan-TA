@@ -17,16 +17,16 @@
                               <select type="text" class="form-control form-select" id="id_user" name="id_user" value="{{old('id_user')}}">
                                 <option selected></option>
                                 @foreach ($pengguna as $item)
-                                <option value="{{$item->id}}">{{$item->Namapengguna}} - {{$item->nisn}}</option>
+                                <option value="{{$item->id}}">{{$item->Namapengguna}} - {{$item->id}} - {{$item->nisn}}</option>
                                 @endforeach
                               </select>
                             </div>
                             <div class="col-md-6">
-                              <label for="id_guest" class="form-label">Id Guest</label>
-                              <select type="text" class="form-control form-select" id="id_guest" name="id_guest" value="{{old('id_guest')}}">
+                              <label for="id_transaksi" class="form-label">Id Guest</label>
+                              <select type="text" class="form-control form-select" id="id_transaksi" name="id_transaksi" value="{{old('id_transaksi')}}">
                                 <option selected></option>
                                 @foreach ($transaksi as $item)
-                                <option value="{{$item->id}}">{{$item->Nama}} - {{$item->token}}</option>
+                                <option value="{{$item->id}}">{{$item->Nama}} - {{$item->id}} - {{$item->token}}</option>
                                 @endforeach
                               </select>
                             </div>
@@ -43,16 +43,16 @@
                                   </select>
                             </div>
                             <div class = "col-md-12">
-                                <label for = "Acara">Acara</label>
-                                <input type = "text" class = "form-control" autocomplete="off" id = "Acara" name = "Acara" value = "{{old('Acara')}}">
+                                <label for = "title">Acara</label>
+                                <input type = "text" class = "form-control" autocomplete="off" id = "title" name = "title" value = "{{old('title')}}">
                               </div>                                                        
                               <div class = "col-md-12">
-                                <label for = "Waktupenggunaan">Waktu Penggunaan</label>
-                                <input type = "datetime-local" class = "form-control" id = "Waktupenggunaan" name = "Waktupenggunaan" value = "{{old('Waktupenggunaan')}}">
+                                <label for = "start">Waktu Penggunaan</label>
+                                <input type = "datetime-local" class = "form-control" id = "start" name = "start" value = "{{old('start')}}">
                               </div>                              
                               <div class = "col-md-12">
-                                <label for = "Waktuhingga">Waktu Hingga</label>
-                                <input type = "datetime-local" class = "form-control" id = "Waktuhingga" name = "Waktuhingga" value = "{{old('Waktuhingga')}}">
+                                <label for = "end">Waktu Hingga</label>
+                                <input type = "datetime-local" class = "form-control" id = "end" name = "end" value = "{{old('end')}}">
                               </div>     
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>

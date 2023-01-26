@@ -37,14 +37,29 @@ class RuanganController extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'required' =>':attribute harus diisi terlebih dahulu'
+            'required' =>':attribute harus diisi terlebih dahulu',
+            'mimes' =>':attribute harus berupa foto'
         ];
         $this->validate ($request,[
             'Namaruangan' => 'required',         
+            'foto' => 'required|mimes:jpg,jpeg,png,svg',         
         ],$messages);
+
+        
+        //ambil informasi file
+        $file = $request->file('foto');
+
+        //rename
+        $nama_file = time()."_".$file->getClientOriginalName();
+
+        //proses upload
+        $tujuan_upload = './template/img';
+        $file->move($tujuan_upload,$nama_file);
+
         
         Ruangan::create([
-            'Namaruangan' => $request->Namaruangan                  
+            'Namaruangan' => $request->Namaruangan,
+            'foto' => $nama_file                  
         ]);
         return redirect('editruangan');
     }

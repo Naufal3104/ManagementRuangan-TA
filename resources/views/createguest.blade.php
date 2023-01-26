@@ -9,15 +9,6 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                      @if (count($errors) > 0)
-                        <div class = "alert alert-warning text-center">
-                          <ul>
-                              @foreach($errors->all() as $error)
-                              <ol>{{ $error }}</ol>
-                              @endforeach
-                          </ul>
-                        </div>
-                      @endif
                         <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="/guest">
                           <a href="/guest"><i class="ni ni-bold-left ni-lg"></i></a>
                           @csrf 
@@ -37,7 +28,7 @@
                               <label for="tanggal_penggunaan" class="form-label">Tanggal Penggunaan</label>
                               <input type="date" name="tanggal_penggunaan" id="tanggal_penggunaan" class="form-control" value="{{old('tanggal_penggunaan')}}">
                             </div>                     
-                            <div class = "form-group">
+                            <div class = "col-md-12">
                                 <label for = "id_ruangan">Ruangan</label>
                             <select type = "text" class = "form-control form-select" id = "id_ruangan" name = "id_ruangan" value = "{{old('id_ruangan')}}">
                                 @foreach ($data as $item)
@@ -55,14 +46,21 @@
                               </ul>
                             </div>
                           </form>
-                          @if (\Session::has('success'))
-                            <div class="alert alert-success text-center">
-                              <ul>
-                                <ol>{!! \Session::get('success') !!}</ol>
-                              </ul>
-                            </div>
-                          @endif
+                          @if (count($errors) > 0)
+                            <ul class="text-danger">
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
+                    @if (\Session::has('success'))
+                    <div class="alert alert-success text-center">
+                      <ul>
+                        <ol>{!! \Session::get('success') !!}</ol>
+                      </ul>
+                    </div>
+                  @endif
                 </div>
             </div>
         </div>

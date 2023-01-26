@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jadwal;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Ruangan;
@@ -19,7 +19,7 @@ class GuestController extends Controller
      */
     public function index()
     {
-        $data = Jadwal::all();
+        $data = Event::all();
         return view('guest', compact('data'));
 
         // dd(Carbon::now()->diffForHumans());

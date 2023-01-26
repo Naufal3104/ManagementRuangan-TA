@@ -9,17 +9,17 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editpengguna.update',$jadwal->id)}}">
+                        <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editpengguna.update',$event->id)}}">
                             {{method_field('PUT')}}
                             @csrf 
                             <h4 class="text-center text-bold">Pilih salah satu</h4>
                             <div class="col-md-6">
                               <label for="id_user" class="form-label">Id User</label>
-                              <input type="text" class="form-control" autocomplete="off" id="id_user" name="id_user" value="{{$jadwal->id_user}}">
+                              <input type="text" class="form-control" autocomplete="off" id="id_user" name="id_user" value="{{$event->id_user}}">
                             </div>
                             <div class="col-md-6">
-                              <label for="id_guest" class="form-label">Id Guest</label>
-                              <input type="text" class="form-control" autocomplete="off" id="id_guest" name="id_guest" value="{{$jadwal->id_guest}}">
+                              <label for="id_transaksi" class="form-label">Id Guest</label>
+                              <input type="text" class="form-control" autocomplete="off" id="id_transaksi" name="id_transaksi" value="{{$event->id_transaksi}}">
                             </div>
                             <div class = "col-md-12">       
                                 <label for = "id_ruangan">Pilih Ruangan</label>
@@ -34,16 +34,16 @@
                                   </select>
                             </div>
                             <div class = "col-md-12">
-                                <label for = "Acara">Acara</label>
-                                <input type = "text" class = "form-control" autocomplete="off" id = "Acara" name = "Acara" value = "{{$jadwal->Acara}}">
+                                <label for = "title">Acara</label>
+                                <input type = "text" class = "form-control" autocomplete="off" id = "title" name = "title" value = "{{$event->title}}">
                               </div>                                                        
                               <div class = "col-md-12">
-                                <label for = "Waktupenggunaan">Waktu Penggunaan</label>
-                                <input type = "datetime-local" class = "form-control" id = "Waktupenggunaan" name = "Waktupenggunaan" value = "{{$jadwal->Waktupenggunaan}}">
+                                <label for = "start">Waktu Penggunaan</label>
+                                <input type = "datetime-local" class = "form-control" id = "start" name = "start" value = "{{$event->start}}">
                               </div>                              
                               <div class = "col-md-12">
-                                <label for = "Waktuhingga">Waktu Hingga</label>
-                                <input type = "datetime-local" class = "form-control" id = "Waktuhingga" name = "Waktuhingga" value = "{{$jadwal->Waktuhingga}}">
+                                <label for = "end">Waktu Hingga</label>
+                                <input type = "datetime-local" class = "form-control" id = "end" name = "end" value = "{{$event->end}}">
                               </div>     
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>

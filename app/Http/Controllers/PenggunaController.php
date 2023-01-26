@@ -76,7 +76,7 @@ class PenggunaController extends Controller
             ]);
             $data = Pengguna::latest()->first();
             // dd($data);
-            return redirect()->back()->with('success','Registrasi berhasil');
+            return redirect()->back()->with('success','Token User anda adalah ' . $data->id);
     }
 
     public function show($id)
