@@ -15,18 +15,6 @@ return new class extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id('id');
-            $table->bigInteger('id_ruangan')->unsigned();
-            $table->foreign('id_ruangan')->references('id')->on('ruangan')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->bigInteger('id_user')->unsigned()->nullable();
-            $table->foreign('id_user')->references('id')->on('user')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->bigInteger('id_guest')->unsigned()->nullable();
-            $table->foreign('id_guest')->references('id')->on('transaksi')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
             $table->dateTime('Waktupenggunaan');
             $table->dateTime('Waktuhingga');
             $table->string('Acara');

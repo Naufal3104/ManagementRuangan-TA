@@ -11,10 +11,10 @@
                         <form class="row g-3" action="">
                             <h2>Pilih Pengguna</h2>
                             <div class="col-md-6"><br>    
-                                <a href = "/user" class = "btn btn-success btn-lg btn-outline-dark w-50"><i class = "ni ni-circle-08"></i><br>Warga Sekolah</a>
+                                <a href = "/full-calender" class = "btn btn-success btn-lg btn-outline-light w-50"><i class = "ni ni-circle-08"></i><br>Warga Sekolah</a>
                             </div>
                             <div class="col-md-6"><br>
-                                <a href = "/guest" class = "btn btn-warning btn-lg btn-outline-dark w-50"><i class = "ni ni-bulb-61"></i><br>Warga Luar</a>
+                                <a href = "/guest" class = "btn btn-warning btn-lg btn-outline-light w-50"><i class = "ni ni-bulb-61"></i><br>Warga Luar</a>
                             </div>
                         </form>
                     </div>

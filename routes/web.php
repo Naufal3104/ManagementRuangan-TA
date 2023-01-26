@@ -24,6 +24,14 @@ Route::resource('/order', OrderController::class);
 
 Route::resource('/guest', GuestController::class);
 
+Route::get('/full-calender', [EventController::class, 'index']);
+
+Route::post('/full-calender/save', [EventController::class, 'action']);
+
+Route::get('/full-calender/list', [EventController::class, 'list_event']);
+
+Route::get('/full-calender/list/{id}', [EventController::class, 'show']);
+
 Route::get('/user', [PenggunaController::class, 'home']);
 
 Route::get('/user/create', [PenggunaController::class, 'buat']);

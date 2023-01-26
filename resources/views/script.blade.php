@@ -5,6 +5,9 @@
   <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="./assets/js/plugins/chartjs.min.js"></script>
   <script src="https://kit.fontawesome.com/95e226d1f1.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
   <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
