@@ -25,6 +25,15 @@
                               <label for="Namaruangan" class="form-label">Nama Ruangan</label>
                               <input type="text" class="form-control" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{$data->Namaruangan}}">
                             </div>
+                            <div class = "col-md-12">
+                              <label for = "Foto">Foto</label>
+                              <input class = "form-control-file" type = "file" class = "form-control" id = "foto" name = "foto">
+                              @if($data->foto == null)
+                              <p>Foto tidak tersedia</p>
+                              @else
+                              <img src = "{{asset('/template/img/'.$data->foto)}}" width="300" class = "img-thumbnail">
+                              @endif
+                            </div>
                             <div class="col-12">
                               <button type="submit" class="btn btn-primary" value="Simpan">Simpan</button>
                               <a href="/editruangan" class="btn btn-danger">Kembali</a>

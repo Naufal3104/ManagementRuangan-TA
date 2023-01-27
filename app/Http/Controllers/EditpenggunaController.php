@@ -47,7 +47,7 @@ class EditpenggunaController extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'required' =>'Kolom :attribute harus diisi',
+            'required' =>':attribute harus diisi',
             'required_without' =>'Pilih salah satu pengguna',
             'prohibited_unless' =>'Hanya dapat memilih satu pengguna',
             'prohibited_if' =>'Guest ini belum melakukan konfirmasi ataupun pembayaran',
@@ -103,8 +103,10 @@ class EditpenggunaController extends Controller
     public function edit($id)
     {
         $ruangan = Ruangan::all();
+        $pengguna = Pengguna::all();
+        $transaksi = Transaksi::all();
         $event = Event::find($id);
-        return view('admin.updatepengguna', compact('ruangan','event'));
+        return view('admin.updatepengguna', compact('ruangan','event', 'pengguna', 'transaksi'));
     }
 
     /**
@@ -130,6 +132,12 @@ class EditpenggunaController extends Controller
             'end' => 'required|after:Waktupenggunaan',
             'title' => 'required'         
         ],$messages);
+
+        if(!empty($request->input('id_transaksi'))) {
+            if(Transaksi::find($request->id_transaksi)->Status == null){
+                return redirect()->back()->with('error', 'Guest ini belum melakukan konfirmasi ataupun pembayaran');
+            }
+        }
 
         $event=Event::find($id);
         $event->id_ruangan = $request->id_ruangan;                  

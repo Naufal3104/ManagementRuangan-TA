@@ -35,9 +35,8 @@
                               <label for="alamat" class="form-label">Alamat</label>
                               <input type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat" value="{{old('alamat')}}">
                             </div>  
-                            </div>                                                      
                             <div class="col-12">
-                              <button type="submit" class="btn btn-primary" value="Simpan">Pesan</button>
+                              <button type="submit" class="btn btn-primary btn-lg" value="Simpan">Pesan</button>
                             </div>
                           </form>
                           @if (count($errors) > 0)

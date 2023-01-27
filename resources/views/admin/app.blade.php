@@ -26,7 +26,6 @@
           <form method = "POST" enctype  = "multipart/form-data" action="{{route('editruangan.store')}}">
               @csrf 
               <input type="text" class="form-control" autocomplete="off" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{old('Namaruangan')}}"><br>
-              <label for="foto">Foto ruangan(opsional)</label><br>
               <input class = "form-control-file" type = "file" class = "form-control" id = "foto" name = "foto" value = "{{old('foto')}}"> 
               @if (count($errors) > 0)
                 @foreach($errors->all() as $error)
