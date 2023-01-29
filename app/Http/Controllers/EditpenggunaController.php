@@ -35,7 +35,7 @@ class EditpenggunaController extends Controller
         $data = Ruangan::all();
         $pengguna = Pengguna::all();
         $transaksi = Transaksi::all();
-        return view('admin.addpengguna', compact('data','transaksi','pengguna'));
+        return view('admin.addevent', compact('data','transaksi','pengguna'));
     }
 
     /**

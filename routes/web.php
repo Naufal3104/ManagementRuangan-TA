@@ -18,9 +18,11 @@ use App\Http\Controllers\EventController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('/', DashboardController::class);
+Route::get('/', [DashboardController::class, 'home']);
 
-Route::resource('/order', OrderController::class);
+Route::get('/order', function () {
+    return view('order');
+});
 
 Route::resource('/guest', GuestController::class);
 
@@ -53,7 +55,7 @@ Route::post('/register/create', [LoginController::class, 'create']);
 Route::post('logout',[LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 route::middleware('auth')->group(function(){
-    Route::resource('/admin', App\Http\Controllers\AdmindashboardController::class);
+    Route::get('/admin', [DashboardController::class, 'admin']);
 
     Route::resource('/adminrequest', App\Http\Controllers\LogController::class);
 
