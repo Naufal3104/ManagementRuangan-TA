@@ -8,8 +8,7 @@
             <div class = "card shadow">
                 <div class = "card-body text-center">
                     @foreach($data1 as $item)
-                    <form action="admin/{{$item->id}}" method="POST" class="d-inline">
-                        @method('delete')
+                    <form action="admin/delete/{{$item->id}}" method="POST" class="d-inline">
                         @csrf
                         @endforeach
                         <button class = "btn btn-info btn-lg w-25"><i class="ni ni-watch-time"></i><br>Perbarui Jadwal</button>

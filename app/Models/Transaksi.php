@@ -24,6 +24,6 @@ class Transaksi extends Model
         return $this->belongsTo(Ruangan::class, 'id_ruangan', 'id');
     }
     public function event(){
-        return $this->hasMany(Event::class, 'id_transaksi', 'id');
+        return $this->hasOne(Event::class, 'id_transaksi', 'id');
     }
 }

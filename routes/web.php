@@ -57,6 +57,8 @@ Route::post('logout',[LoginController::class, 'logout'])->name('logout')->middle
 route::middleware('auth')->group(function(){
     Route::get('/admin', [DashboardController::class, 'admin']);
 
+    Route::post('/admin/delete/{id}', [DashboardController::class, 'destroy']);
+
     Route::resource('/adminrequest', App\Http\Controllers\LogController::class);
 
     Route::resource('/editruangan', App\Http\Controllers\RuanganController::class);

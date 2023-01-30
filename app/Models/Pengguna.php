@@ -18,11 +18,8 @@ class Pengguna extends Model
     ];
 
     protected $table = 'user';
-    public function transaksi(){
-        return $this->hasMany(Transaksi::class, 'id_transaksi', 'id');
-    }
     public function event(){
-        return $this->hasMany(Event::class, 'id_jadwal', 'id');
+        return $this->hasOne(Event::class, 'id_jadwal', 'id');
     }
 
 }
