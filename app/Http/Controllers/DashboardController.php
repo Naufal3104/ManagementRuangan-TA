@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Ruangan;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -10,8 +11,10 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function home(){
-        $data=User::first();
-        return view('dashboard', compact('data'));
+        $admin=User::first();
+        $ruangan=Ruangan::all();
+        $event=Event::all();
+        return view('dashboard', compact('admin','ruangan','event'));
     }
 
     public function admin(){
@@ -23,8 +26,8 @@ class DashboardController extends Controller
     {
         $waktu = date("Y-m-d h:i:00");
         $carbon =  Carbon::now();
-        $jadwal = Event::find($id)->whereDate('end', '<', $waktu)->delete();
-        // $jadwal = Event::find($id)->whereDate('end', '<', $carbon->subYears(1))->get()->delete();
+        // $jadwal = Event::find($id)->whereDate('end', '<', $waktu)->delete();
+        $jadwal = Event::find($id)->whereDate('end', '<', $carbon->subMonths(3))->delete();
         return redirect('/admin');
     }
 }

@@ -8,7 +8,7 @@
             <div class = "col-lg-6">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <table class = "table text-center">
+                        <table class = "table text-center  table-borderless">
                             <h4 class="text-center">Ruangan dengan User | <a href="{{route('editpengguna.create')}}" class="text-success">Tambah data</a></h4>
                             <thead>
                                 <tr>
@@ -44,7 +44,7 @@
             <div class = "col-lg-6">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <table class = "table text-center">
+                        <table class = "table text-center  table-borderless">
                             <h4 class="text-center">Ruangan dengan Guest |  <a href="{{route('editpengguna.create')}}" class="text-success">Tambah data</a></h4>
                             <thead>
                                 <tr>

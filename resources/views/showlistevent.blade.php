@@ -9,7 +9,11 @@
                 <div class = "card shadow mb-4">
                     <div class = "card-body text-center">
                         <h1 class="fw-bold">{{$event->ruangan->Namaruangan}}</h1>
+                        @if($event->ruangan->foto == null)
+                        <h3>Tidak ada foto ruangan</h3>
+                        @else
                         <img src="{{asset('/template/img/'.$event->ruangan->foto)}}" alt="image" width="410" class="rounded-circle img-thumbnail mt-4" />
+                        @endif
                     </div>
                 </div>
             </div>

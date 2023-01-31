@@ -23,7 +23,7 @@
         <div class = "col-lg-12">
             <div class = "card shadow ">
                 <div class = "card-body">
-                    <table class = "table text-center">
+                    <table class = "table text-center table-borderless">
                         <h4 class="text-center">Jadwal</h4>
                         <thead>
                             <tr>

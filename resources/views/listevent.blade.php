@@ -8,7 +8,7 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <table class="table text-center">
+                        <table class="table text-center table-borderless">
                             <thead>
                                 <th></th>
                                 <th>Acara</th>

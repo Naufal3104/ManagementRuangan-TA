@@ -8,7 +8,7 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <table class = "table text-center">
+                        <table class = "table text-center table-borderless">
                             <div class="position-absolute end-0 translate-middle mt-3">
                                 <a href="{{ route('guest.create') }}" class="btn btn-primary btn-sm">Pesan</a><br>
                             </div>

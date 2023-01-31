@@ -9,7 +9,7 @@
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">Tambah Ruangan</button>
-                        <table class = "table text-center">
+                        <table class = "table text-center table-borderless">
                             <thead>
                                 <tr>
                                     <th scope = "col">No.</th>
