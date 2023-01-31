@@ -20,6 +20,8 @@ use App\Http\Controllers\EventController;
 */
 Route::get('/', [DashboardController::class, 'home']);
 
+Route::get('/room/{id}', [DashboardController::class, 'show']);
+
 Route::get('/order', function () {
     return view('order');
 });
@@ -44,9 +46,9 @@ Route::get('/user/register', [PenggunaController::class, 'create']);
 
 Route::post('/user/store', [PenggunaController::class, 'store']);
 
-Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 
-Route::post('login',[LoginController::class, 'authenticate']);
+Route::post('/login',[LoginController::class, 'authenticate']);
 
 Route::get('/register', [LoginController::class, 'register']);
 

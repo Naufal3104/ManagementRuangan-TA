@@ -1,6 +1,6 @@
 @extends('app')
 @section('title','Order')
-@section ('content-title','Pesan Ruang')
+@section('content-title','Pesan Ruang')
 @section('content')
 <div class="container-fluid py-4">
     <div class="row">

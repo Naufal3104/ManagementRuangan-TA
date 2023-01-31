@@ -73,7 +73,7 @@
               <h5>Login</h5>
             </div>
             <div class="card-body">
-            <form class="user" action='login' method="post">
+            <form class="user" action='/login' method="post">
                 @csrf
                 <div class="mb-3">
                     <input type="name" autocomplete="off" class="form-control form-control-user" id="name" name="name" placeholder="Username">

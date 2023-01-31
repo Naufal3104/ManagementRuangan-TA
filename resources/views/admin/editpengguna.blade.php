@@ -12,17 +12,14 @@
                             <h4 class="text-center">Ruangan dengan User | <a href="{{route('editpengguna.create')}}" class="text-success">Tambah data</a></h4>
                             <thead>
                                 <tr>
-                                    <th scope = "col">No.</th>
                                     <th scope = "col">Ruangan</th>
                                     <th scope = "col">Pengguna</th>
                                     <th scope = "col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1?>
                                 @foreach ($data as $item)
                                 <tr>
-                                    <th scope = "row">{{ $i++}}</th>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->user->Namapengguna}}</td>
                                     <td>
@@ -48,17 +45,14 @@
                             <h4 class="text-center">Ruangan dengan Guest |  <a href="{{route('editpengguna.create')}}" class="text-success">Tambah data</a></h4>
                             <thead>
                                 <tr>
-                                    <th scope = "col">No.</th>
                                     <th scope = "col">Ruangan</th>
                                     <th scope = "col">Pengguna</th>
                                     <th scope = "col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1?>
                                 @foreach ($data1 as $item)
                                 <tr>
-                                    <th scope = "row">{{ $i++}}</th>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->transaksi->Nama}}</td>
                                     <td>

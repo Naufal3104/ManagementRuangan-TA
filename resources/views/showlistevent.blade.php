@@ -1,4 +1,4 @@
-@extends('app')
+{{-- @extends('app')
 @section('title','Event')
 @section('content-title','Event')
 @section('content')
@@ -49,4 +49,40 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rincian penggunaan</h5>
+      </div>
+      <div class="modal-body">     
+        <p class="fw-bold">{{$event->ruangan->Namaruangan}}</p>
+        @if($event->ruangan->foto == null)
+        <p>Tidak ada foto ruangan</p>
+        @else
+        <img src="{{asset('/template/img/'.$event->ruangan->foto)}}" alt="image" width="200" /><br><br>
+        @endif  
+        Ruangan :   {{$event->ruangan->Namaruangan}}<br> 
+        Acara : {{$event->title}}<br>
+        Waktu penggunaan  : {{$event->start}}<br>
+        Waktu hingga : {{$event->end}}<br>
+        @if($event->id_user == null)
+        Guest<br>
+        Nama    :   {{$event->transaksi->Nama}}<br>
+        Nomor Telepon   :   {{$event->transaksi->NomorTelepon}}<br><br>
+        @else
+        User<br> 
+        Nama    :   {{$event->user->Namapengguna}}<br>
+        Nomor Telepon   :   {{$event->user->Nomortelepon}}<br>
+        NISN/NRG    :   {{$event->user->nisn}}<br>
+        Jenis Kelamin   :   {{$event->user->jeniskelamin}}<br>
+        Alamat  :   {{$event->user->Alamat}}<br><br>
+        @endif
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>

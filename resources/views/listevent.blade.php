@@ -24,7 +24,7 @@
                                     <td>{{$item->start}}</td>
                                     <td>{{$item->end}}</td>
                                     <td>
-                                        <a href="list/{{$item->id}}" class="btn btn-primary btn-sm"><i class="ni ni-air-baloon"></i></a>
+                                        <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#eventModal"><i class="ni ni-air-baloon"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -36,4 +36,14 @@
         </div>
     </div>
 </div>
+<div class="modal modal-event" id="eventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+</div>
+<script>
+    function show(id){
+        $.get('/full-calender/list/'+id, function(data){
+            $('.modal-event').html(data);
+        })
+    }
+</script>
 @endsection

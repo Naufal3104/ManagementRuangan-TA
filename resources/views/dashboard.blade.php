@@ -33,17 +33,25 @@
                       <h2>Daftar Ruangan</h2><br>
                       <div class="table-wrapper-scroll-y my-custom-scrollbar mb-3">
                       <table class="table text-center table-borderless">
-                        <thead>
-                          <th>Ruangan</th>
-                          <th>Info</th>
-                        </thead>
                         <tbody>
                           <tr>
-                            @foreach($ruangan as $item)
+                            @foreach($data as $item)
                             <td>{{$item->Namaruangan}}</td>
-                            <td><a href="" class="btn btn-info"><i class="ni ni-air-baloon"></i></a></td>
+                            <td>
+                              <a class="btn btn-info " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#roomModal"><i class="ni ni-air-baloon"></i></a>
+                            </td>
                           </tr>
                           @endforeach
+                          <div class="modal modal-ruangan" id="roomModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                          </div>
+                          <script>
+                            function show(id){
+                                $.get('/room/'+id, function(data){
+                                    $('.modal-ruangan').html(data);
+                                })
+                            }
+                        </script>
                         </tbody>
                       </table>
                       </div>

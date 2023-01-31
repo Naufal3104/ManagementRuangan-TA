@@ -27,17 +27,14 @@
                         <h4 class="text-center">Jadwal</h4>
                         <thead>
                             <tr>
-                                <th scope = "col">No.</th>
                                 <th scope = "col">Ruangan</th>
                                 <th scope = "col">Waktu - Hingga </th>
                                 <th scope = "col">Acara</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i = 1?>
                             @foreach ($data1 as $item)
                             <tr>
-                                <th scope = "row">{{ $i++}}</th>
                                 <td>{{$item->ruangan->Namaruangan}}</td>
                                 <td>{{$item->start}} - {{$item->end}}</td>
                                 <td>{{$item->title}}</td>                              

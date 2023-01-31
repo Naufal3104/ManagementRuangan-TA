@@ -12,14 +12,20 @@ class DashboardController extends Controller
 {
     public function home(){
         $admin=User::first();
-        $ruangan=Ruangan::all();
+        $data=Ruangan::all();
         $event=Event::all();
-        return view('dashboard', compact('admin','ruangan','event'));
+        return view('dashboard', compact('admin','data','event'));
     }
 
     public function admin(){
         $data1 = Event::all();
         return view('admin.dashboard', compact('data1'));
+    }
+
+    public function show($id)
+    {
+        $ruangan = Ruangan::find($id);
+        return view('showruangan', compact('ruangan'));
     }
 
     public function destroy($id)
