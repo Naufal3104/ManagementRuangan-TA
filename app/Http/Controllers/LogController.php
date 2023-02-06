@@ -81,7 +81,7 @@ class LogController extends Controller
         $transaksi=Transaksi::find($id);
         $transaksi->Status = $request->Status;
         $transaksi->save();
-        return redirect()->back()->with('success','Pengguna diizinkan');
+        return redirect()->back()->with('success','Pengguna berhasil diubah');
     }
 
     /**

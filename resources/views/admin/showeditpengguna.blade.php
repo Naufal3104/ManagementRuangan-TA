@@ -33,7 +33,8 @@
         @if($data->id_user == null)
         Guest<br>
         Nama    :   {{$data->transaksi->Nama}}<br>
-        Nomor Telepon   :   {{$data->transaksi->NomorTelepon}}<br><br>
+        Nomor Telepon   :   {{$data->transaksi->NomorTelepon}}<br>
+        Alamat : {{$data->transaksi->alamat}}<br><br>
         Ruangan :   {{$data->ruangan->Namaruangan}}<br> 
         Acara : {{$data->title}}<br>
         Waktu penggunaan  : {{$data->start}}<br>

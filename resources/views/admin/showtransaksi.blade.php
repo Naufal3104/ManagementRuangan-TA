@@ -7,6 +7,7 @@
         ID Transaksi : {{$data->id}}<br>
         Nama : {{$data->Nama}}<br>
         Nomor telepon : {{$data->NomorTelepon}}<br>
+        Alamat : {{$data->alamat}}<br>
         Pengajuan Ruangan : {{$data->ruangan->Namaruangan}}<br>
         Token : {{$data->token}}<br>
         @if($data->Status == null)

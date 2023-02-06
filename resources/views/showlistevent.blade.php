@@ -71,7 +71,8 @@
         @if($event->id_user == null)
         Guest<br>
         Nama    :   {{$event->transaksi->Nama}}<br>
-        Nomor Telepon   :   {{$event->transaksi->NomorTelepon}}<br><br>
+        Nomor Telepon   :   {{$event->transaksi->NomorTelepon}}<br>
+        Alamat  :   {{$event->transaksi->alamat}}<br><br>
         @else
         User<br> 
         Nama    :   {{$event->user->Namapengguna}}<br>
