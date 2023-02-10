@@ -18,14 +18,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $item)
+                                @foreach ($user as $item)
                                 <tr>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->user->Namapengguna}}</td>
                                     <td>
                                         <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal"><i class="ni ni-bulb-61"></i></a>
                                         <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
-                                        <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline">
+                                        <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline" onsubmit="return confirm('Hapus data Acara Ini?')">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger"><i class="ni ni-fat-delete"></i></button>      
@@ -51,14 +51,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data1 as $item)
+                                @foreach ($guest as $item)
                                 <tr>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->transaksi->Nama}}</td>
                                     <td>
                                         <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal"><i class="ni ni-bulb-61"></i></a>
                                         <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
-                                        <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline">
+                                        <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline" onsubmit="return confirm('Hapus data Acara Ini?')">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger"><i class="ni ni-fat-delete"></i></button>      

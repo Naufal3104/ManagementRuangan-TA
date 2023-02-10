@@ -14,8 +14,8 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        $data = Ruangan::all();
-        return view('admin.ruangan', compact('data'));
+        $ruangan = Ruangan::all();
+        return view('admin.ruangan', compact('ruangan'));
     }
 
     /**
@@ -83,8 +83,8 @@ class RuanganController extends Controller
      */
     public function edit($id)
     {
-        $data = Ruangan::find($id);
-        return view('admin.editruangan', compact('data'));
+        $ruangan = Ruangan::find($id);
+        return view('admin.editruangan', compact('ruangan'));
     }
 
     /**

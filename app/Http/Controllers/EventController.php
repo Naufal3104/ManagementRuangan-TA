@@ -85,7 +85,7 @@ class EventController extends Controller
 
 	public function list_event()
 	{
-		$event = Event::all();
+		$event = Event::simplePaginate(5);
 		return view('listevent',compact('event'));
 	}
 

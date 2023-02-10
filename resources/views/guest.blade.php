@@ -26,18 +26,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1?>
-                                @foreach ($data as $item)
+                                @forelse ($event as $key => $item)
                                 <tr>
-                                    <th scope = "row">{{ $i++}}</th>
+                                    <th>{{ $event->firstItem() + $key}}</th>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
                                     <td>{{$item->start}} - {{$item->end}}</td>
                                     <td>{{$item->title}}</td>
-                                    @endforeach
                                     @csrf
                                 </tr>
+                                @empty
+                                <tr>
+                                    <td colspan="5" class="text-center">Tidak ada data Acara.</td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
+                        {{ $event->links()}}
                     </div>
                 </div>
             </div>

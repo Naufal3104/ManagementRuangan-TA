@@ -18,20 +18,20 @@
                           </ul>
                         </div>
                       @endif
-                        <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editruangan.update',$data->id)}}">
+                        <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editruangan.update',$ruangan->id)}}">
                         @csrf       
                         {{method_field('PUT')}} 
                             <div class="col-md-12">
                               <label for="Namaruangan" class="form-label">Nama Ruangan</label>
-                              <input type="text" class="form-control" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{$data->Namaruangan}}">
+                              <input type="text" class="form-control" placeholder="Nama ruangan" id="Namaruangan" name="Namaruangan" value="{{$ruangan->Namaruangan}}">
                             </div>
                             <div class = "col-md-12">
                               <label for = "Foto">Foto</label>
                               <input class = "form-control-file" type = "file" class = "form-control" id = "foto" name = "foto">
-                              @if($data->foto == null)
+                              @if($ruangan->foto == null)
                               <p>Foto tidak tersedia</p>
                               @else
-                              <img src = "{{asset('/template/img/'.$data->foto)}}" width="300" class = "img-thumbnail">
+                              <img src = "{{asset('/template/img/'.$ruangan->foto)}}" width="300" class = "img-thumbnail">
                               @endif
                             </div>
                             <div class="col-12">

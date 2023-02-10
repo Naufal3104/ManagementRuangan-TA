@@ -28,6 +28,16 @@
                 </div>
             </div>
             <div class = "col-lg-6">
+              <div class = "card shadow mb-4 h-93">
+                  <div class = "card-body text-center">
+                    <h2>Butuh bantuan?</h2><br><br><br>  
+                    <div class="col-ml-12">  
+                      <a href = "https://wa.me/62{{$admin->telp}}" class = "btn btn-success btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
+                    </div>
+                  </div>
+              </div>
+          </div>
+            <div class = "col-lg-6">
                 <div class = "card shadow mb-4">
                     <div class = "card-body text-center">
                       <h2>Daftar Ruangan</h2><br>
@@ -88,16 +98,6 @@
                       </table>
                       </div>
                     </a>
-                    </div>
-                </div>
-            </div>
-            <div class = "col-lg-6">
-                <div class = "card shadow mb-4 h-93">
-                    <div class = "card-body text-center">
-                      <h2>Butuh bantuan?</h2><br><br><br>  
-                      <div class="col-ml-12">  
-                        <a href = "https://wa.me/62{{$admin->telp}}" class = "btn btn-success btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
-                      </div>
                     </div>
                 </div>
             </div>

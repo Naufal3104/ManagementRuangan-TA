@@ -1,6 +1,6 @@
 @extends('app')
 @section('title','Event')
-@section('content-title','Event')
+@section('content-title','Acara')
 @section('content')
 <div class="container-fluid py-4">
     <div class="row">
@@ -18,8 +18,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    @foreach ($event as $item)
-                                    <td>{{$loop->iteration}}</td>
+                                    @forelse ($event as $key => $item)
+                                    <td>{{ $event->firstItem() + $key }}</td>
                                     <td>{{$item->title}}</td>
                                     <td>{{$item->start}}</td>
                                     <td>{{$item->end}}</td>
@@ -27,9 +27,14 @@
                                         <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#eventModal"><i class="ni ni-air-baloon"></i></a>
                                     </td>
                                 </tr>
-                                @endforeach
+                                @empty
+                                <tr>
+                                  <td colspan="5" class="text-center">Tidak ada data Acara.</td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
+                        {{ $event->links()}}
                     </div>
                 </div>
             </div>

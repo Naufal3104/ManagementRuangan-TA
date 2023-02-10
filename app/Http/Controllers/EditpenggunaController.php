@@ -20,9 +20,9 @@ class EditpenggunaController extends Controller
      */
     public function index()
     {
-        $data = Event::all()->where('id_transaksi', '==', null);
-        $data1 = Event::all()->where('id_user', '==', null );
-        return view('admin.editpengguna', compact('data', 'data1'));
+        $user = Event::all()->where('id_transaksi', '==', null);
+        $guest = Event::all()->where('id_user', '==', null );
+        return view('admin.editpengguna', compact('user', 'guest'));
     }
 
     /**
@@ -32,10 +32,10 @@ class EditpenggunaController extends Controller
      */
     public function create()
     {
-        $data = Ruangan::all();
+        $ruangan = Ruangan::all();
         $pengguna = Pengguna::all();
         $transaksi = Transaksi::all();
-        return view('admin.addevent', compact('data','transaksi','pengguna'));
+        return view('admin.addevent', compact('ruangan','transaksi','pengguna'));
     }
 
     /**

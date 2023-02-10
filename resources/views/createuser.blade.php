@@ -36,7 +36,7 @@
                               <input type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat" value="{{old('alamat')}}">
                             </div>  
                             <div class="col-12 text-end">
-                              <button type="submit" class="btn btn-primary btn-sm h-75 w-8 " value="Simpan">Pesan</button>
+                              <button type="submit" class="btn btn-primary btn-sm h-75 w-8 " value="Simpan">Register</button>
                             </div>
                           </form>
                           @if (count($errors) > 0)
@@ -47,16 +47,16 @@
                             </ul>
                         @endif
                     </div>
-                    @if (\Session::has('success'))
-                    <div class="alert alert-success text-center">
-                      <ul>
-                        <ol>Registrasi berhasil</ol>
-                        <ol>{!! \Session::get('success') !!}</ol>
-                        <ol><a href="/full-calender">Menuju ke penggunaan ruangan</a></ol>
-                      </ul>
-                    </div>
-                  @endif
                 </div>
+                @if (\Session::has('success'))
+                <div class="alert alert-success text-center">
+                  <ul>
+                    <ol>Registrasi berhasil<button type="button" class="btn-close position-absolute end-1" data-bs-dismiss="alert" aria-label="Close"></button></ol>
+                    <ol>{!! \Session::get('success') !!}</ol>
+                    <ol><a href="/full-calender">Menuju ke penggunaan ruangan</a></ol>
+                  </ul>
+                </div>
+              @endif
             </div>
         </div>
     </div>

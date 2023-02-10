@@ -12,10 +12,10 @@
                         <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editpengguna.update',$event->id)}}">
                             {{method_field('PUT')}}
                             @csrf 
-                            <h4 class="text-center text-bold">Pilih salah satu</h4>
+                            <h4 class="text-center text-bold">Pilih salah satu pengguna</h4>
                             <div class="col-md-6">
                               <label for="id_user" class="form-label">Id User</label>
-                              <select type="text" class="form-control" autocomplete="off" id="id_user" name="id_user">
+                              <select type="text" class="form-control form-select" autocomplete="off" id="id_user" name="id_user">
                                 <option selected></option>
                                 @foreach ($pengguna as $item)
                                 @if ($event->id_user == $item->id)
@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-md-6">
                               <label for="id_transaksi" class="form-label">Id Guest</label>
-                              <select type="text" class="form-control" autocomplete="off" id="id_transaksi" name="id_transaksi">
+                              <select type="text" class="form-control form-select" autocomplete="off" id="id_transaksi" name="id_transaksi">
                                 <option selected></option>
                                     @foreach ($transaksi as $item)
                                     @if ($event->id_transaksi == $item->id)
@@ -41,7 +41,7 @@
                             </div>
                             <div class = "col-md-12">       
                                 <label for = "id_ruangan">Pilih Ruangan</label>
-                                  <select type = "text" class = "form-control" id = "id_ruangan" name = "id_ruangan">
+                                  <select type = "text" class = "form-control form-select" id = "id_ruangan" name = "id_ruangan">
                                     <option selected></option>
                                     @foreach ($ruangan as $item)
                                     @if ($event->id_ruangan == $item->id)

@@ -7,7 +7,7 @@
         <div class = "col-lg-12">
             <div class = "card shadow">
                 <div class = "card-body text-center">
-                    @foreach($data1 as $item)
+                    @foreach($event as $item)
                     <form action="admin/delete/{{$item->id}}" method="POST" class="d-inline">
                         @csrf
                         @endforeach
@@ -33,16 +33,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data1 as $item)
+                            @forelse ($event as $item)
                             <tr>
                                 <td>{{$item->ruangan->Namaruangan}}</td>
                                 <td>{{$item->start}} - {{$item->end}}</td>
-                                <td>{{$item->title}}</td>                              
-                                @endforeach
-                                @csrf
-                            </tr>
+                                <td>{{$item->title}}</td>      
+                            </tr>                  
+                            @empty
+                                <tr>
+                                  <td colspan="5" class="text-center">Tidak ada data Acara.</td>
+                                </tr>
+                            @endforelse
+                            @csrf
                         </tbody>
                     </table>
+                    {{ $event->links()}}
                 </div>
             </div>
         </div>

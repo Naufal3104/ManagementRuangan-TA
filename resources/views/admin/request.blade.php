@@ -15,7 +15,7 @@
                                     </tr>
                                 </thead>
                             <tbody>
-                                @foreach ($data as $item)
+                                @foreach ($transaksi as $item)
                                 <tr>
                                     <td>
                                         {{$item->Nama}} Mengajukan pemesanan untuk ruangan {{$item->ruangan->Namaruangan}} | {{$item->token}} | 
@@ -28,10 +28,10 @@
                                     <td class="text-center">
                                         <a class="btn btn-info " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal">Rincian</a>
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Izinkan</button> 
-                                        <form action="adminrequest/{{$item->id}}" method="POST" class="d-inline">
+                                        <form action="adminrequest/{{$item->id}}" method="POST" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data permintaan?')">
                                             @method('delete')
                                             @csrf
-                                            <button class="btn btn-warning">Hapus</button>    
+                                            <button class="btn btn-danger" type="submit">Hapus</button>    
                                         </form>                          
                                     </td>
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -66,10 +66,17 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{$transaksi->links()}}
+                        {{-- <form action="/search" method="GET" enctype="multipart/form-data">
+                            @csrf
+                            <label for="">Cari berdasarkan Token</label>
+                            <input type="text" name="token" class="form-control w-25 d-inline" id="token" placeholder="Masukkan keyword">
+                            <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                        </form> --}}
                     </div>
                 </div>
                 @if (\Session::has('success'))
-                <div class="alert alert-success text-center">
+                <div class="alert alert-success text-center fw-bold">
                   <ul>
                     <ol>{!! \Session::get('success') !!}</ol>
                     <ol><a href="/editpengguna">Menuju ke management ruangan</a></ol>

@@ -19,8 +19,8 @@ class GuestController extends Controller
      */
     public function index()
     {
-        $data = Event::all();
-        return view('guest', compact('data'));
+        $event = Event::simplePaginate(5);
+        return view('guest', compact('event'));
 
         // dd(Carbon::now()->diffForHumans());
         // dd(date("Y-m-d h:i:00 "));
@@ -34,8 +34,8 @@ class GuestController extends Controller
     public function create()
     {
         // $data = Ruangan::where('id_user',null)->get();
-        $data =Ruangan::all();
-        return view('createguest', compact('data'));
+        $ruangan =Ruangan::all();
+        return view('createguest', compact('ruangan'));
     }
 
     /**
@@ -68,9 +68,9 @@ class GuestController extends Controller
             'tanggal_penggunaan' => $request->tanggal_penggunaan,
             'token' => Str::random(10)                        
         ]);
-        $data = Transaksi::latest()->first();
-        $data1 = User::first();
-        return redirect()->back()->with('success','Token Anda adalah ' . $data->token . ". Hubungi 0" . $data1->telp . " untuk melakukan konfirmasi dan pembayaran");
+        $transaksi = Transaksi::latest()->first();
+        $admin = User::first();
+        return redirect()->back()->with('success','Token Anda adalah ' . $transaksi->token . ". Hubungi 0" . $admin->telp . " untuk melakukan konfirmasi dan pembayaran");
         
 
     }

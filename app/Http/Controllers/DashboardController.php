@@ -18,8 +18,8 @@ class DashboardController extends Controller
     }
 
     public function admin(){
-        $data1 = Event::all();
-        return view('admin.dashboard', compact('data1'));
+        $event = Event::simplePaginate(5);
+        return view('admin.dashboard', compact('event'));
     }
 
     public function show($id)

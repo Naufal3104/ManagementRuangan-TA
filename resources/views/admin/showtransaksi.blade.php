@@ -4,13 +4,12 @@
         <h5 class="modal-title" id="exampleModalLabel">Rincian permintaan</h5>
       </div>
       <div class="modal-body">
-        ID Transaksi : {{$data->id}}<br>
-        Nama : {{$data->Nama}}<br>
-        Nomor telepon : {{$data->NomorTelepon}}<br>
-        Alamat : {{$data->alamat}}<br>
-        Pengajuan Ruangan : {{$data->ruangan->Namaruangan}}<br>
-        Token : {{$data->token}}<br>
-        @if($data->Status == null)
+        Nama : {{$transaksi->Nama}}<br>
+        Nomor telepon : {{$transaksi->NomorTelepon}}<br>
+        Alamat : {{$transaksi->alamat}}<br>
+        Pengajuan Ruangan : {{$transaksi->ruangan->Namaruangan}}<br>
+        Token : {{$transaksi->token}}<br>
+        @if($transaksi->Status == null)
         Status : Belum Disetujui
         @else
         Status : Disetujui

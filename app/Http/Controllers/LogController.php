@@ -15,8 +15,8 @@ class LogController extends Controller
      */
     public function index()
     {
-        $data=Transaksi::all();
-        return view('admin.request', compact('data'));
+        $transaksi=Transaksi::simplePaginate(5);
+        return view('admin.request', compact('transaksi'));
     }
 
     /**
@@ -48,8 +48,8 @@ class LogController extends Controller
      */
     public function show($id)
     {
-        $data = Transaksi::find($id);
-        return view('admin.showtransaksi', compact('data'));
+        $transaksi = Transaksi::find($id);
+        return view('admin.showtransaksi', compact('transaksi'));
     }
 
     /**
@@ -95,4 +95,5 @@ class LogController extends Controller
         $data = Transaksi::find($id)->delete();
         return redirect('adminrequest');
     }
+
 }

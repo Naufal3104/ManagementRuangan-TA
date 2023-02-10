@@ -19,13 +19,13 @@
                             </thead>
                             <tbody>
                                 <?php $i = 1?>
-                                @foreach ($data as $item)
+                                @foreach ($ruangan as $item)
                                 <tr>
                                     <th scope = "row">{{ $i++}}</th>
                                     <td>{{$item->Namaruangan}}</td>
                                     <td>
                                         <a href = "editruangan/{{ $item->id}}/edit" class = "btn btn-warning btn-group"><i class = "ni ni-lock-circle-open"></i></a>
-                                        <form action="editruangan/{{$item->id}}" method="POST" class="d-inline">
+                                        <form action="editruangan/{{$item->id}}" method="POST" class="d-inline" onsubmit="return confirm('Hapus data ruangan ini?')">
                                             @method('delete')
                                             @csrf
                                             <button class = "btn btn-danger btn-group"><i class = "ni ni-fat-remove"></i></button>

@@ -31,7 +31,7 @@
                             <div class = "col-md-12">
                                 <label for = "id_ruangan">Ruangan</label>
                             <select type = "text" class = "form-control form-select" id = "id_ruangan" name = "id_ruangan" value = "{{old('id_ruangan')}}">
-                                @foreach ($data as $item)
+                                @foreach ($ruangan as $item)
                                 <option value = {{$item->id}}>{{$item->Namaruangan}}</option>
                                 @endforeach
                             </select>
@@ -54,14 +54,14 @@
                             </ul>
                         @endif
                     </div>
-                    @if (\Session::has('success'))
-                    <div class="alert alert-success text-center">
-                      <ul>
-                        <ol>{!! \Session::get('success') !!}</ol>
-                      </ul>
-                    </div>
-                  @endif
                 </div>
+                @if (\Session::has('success'))
+                <div class="alert alert-success text-center">
+                  <ul>
+                    <ol>{!! \Session::get('success') !!}<button type="button" class="btn-close position-absolute end-1" data-bs-dismiss="alert" aria-label="Close"></button></ol>
+                  </ul>
+                </div>
+              @endif
             </div>
         </div>
     </div>

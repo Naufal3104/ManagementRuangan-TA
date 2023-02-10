@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +36,6 @@ Route::post('/full-calender/save', [EventController::class, 'action']);
 Route::get('/full-calender/list', [EventController::class, 'list_event']);
 
 Route::get('/full-calender/list/{id}', [EventController::class, 'show']);
-
-Route::get('/user', [PenggunaController::class, 'home']);
-
-Route::get('/user/create', [PenggunaController::class, 'buat']);
-
-Route::post('/user/save', [PenggunaController::class, 'simpan']);
 
 Route::get('/user/register', [PenggunaController::class, 'create']);
 

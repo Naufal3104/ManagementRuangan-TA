@@ -1,6 +1,6 @@
 @extends('app')
 @section('title','Event')
-@section('content-title','Event')
+@section('content-title','Acara')
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
@@ -19,8 +19,8 @@
                         <div class = "card-body">
                             <div class="container">
                                 <div class="position-relative">
-                                <a href="/full-calender/list" class="position-absolute top-0 start-0">List acara</a><br>
-                                <a href="user/register" class="position-absolute top-0 end-0">Register</a><br>
+                                <a href="/full-calender/list" class="position-absolute top-0 start-0"><strong>Daftar Acara</strong></a><br>
+                                <a href="user/register" class="position-absolute top-0 end-0"><strong>Register</strong></a><br>
                                 </div>
                                 <div id="calendar"></div>
                                 <ul>
@@ -59,6 +59,7 @@
                         <input type="datetime-local" class="form-control" name="start" id="start" value="{{old('start')}}">
                         <label for="end">End Time</label>
                         <input type="datetime-local" class="form-control" name="end" id="end" value="{{old('end')}}">
+                        <a href="user/register">Belum memiliki User?</a>
                         @if (count($errors) > 0)
                             <ul class="text-danger">
                                 @foreach($errors->all() as $error)
@@ -144,7 +145,7 @@
                             success:function(response)
                             {
                                 calendar.fullCalendar('refetchEvents');
-                                alert("Event Updated Successfully");
+                                alert("Acara berhasil diubah");
                             }
                         })
                     },
@@ -167,7 +168,7 @@
                             success:function(response)
                             {
                                 calendar.fullCalendar('refetchEvents');
-                                alert("Event Updated Successfully");
+                                alert("Acara berhasil diubah");
                             }
                         })
                     }
