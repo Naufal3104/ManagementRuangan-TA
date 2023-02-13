@@ -15,7 +15,6 @@
 @include('sidebar')
 @include('topbar')
   @yield('content')
-
 @include('script')
 </body>
 

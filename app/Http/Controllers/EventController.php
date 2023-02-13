@@ -58,6 +58,7 @@ class EventController extends Controller
     		// 	return response()->json($event);
     		// }
     	}
+		
 		$messages = [
             'required' =>':attribute harus diisi terlebih dahulu',
             'numeric' =>':attribute harus diisi angka',
@@ -71,15 +72,23 @@ class EventController extends Controller
             'end' => 'required',     
         ],$messages);
 
-        Event::create([
-            'title' => $request->title,
-            'id_ruangan' => $request->id_ruangan,
-            'id_user' => $request->id_user,
-            'start' => $request->start,
-            'end' => $request->end,
-        ]);
-
+		Event::create([
+    		'title'		=>	$request->title,
+    		'id_ruangan'=>	$request->id_ruangan,
+    		'id_user'	=>	$request->id_user,
+    		'start'		=>	$request->start,
+    		'end'		=>	$request->end
+    	]);
 		return redirect()->back();
+
+        // Event::create([
+        //     'title' => $request->title,
+        //     'id_ruangan' => $request->id_ruangan,
+        //     'id_user' => $request->id_user,
+        //     'start' => $request->start,
+        //     'end' => $request->end,
+        // ]);
+
 
     }
 
