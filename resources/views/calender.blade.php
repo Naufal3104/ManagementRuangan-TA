@@ -24,8 +24,9 @@
                                 </div>
                                 <div id="calendar"></div>
                                 <ul>
-                                    <li>Ketuk pada tanggal manapun untuk menambahkan Acara</li>
-                                    <li>Seret pada acara untuk memperpanjang/memperpendek durasi acara, pindahkan acara untuk memindahkan ke hari lainnya</li>
+                                    <li>Ketuk pada tanggal manapun untuk menambahkan acara</li>
+                                    <li>Anda juga dapat mengatur waktu penggunaan dengan mengatur waktu secara manual</li>
+                                    <li>Seret pada acara untuk memperpanjang/memperpendek durasi acara</li>
                                     <li>Acara hanya dapat dihapus dan diganti penggunanya oleh admin</li>
                                 </ul>
                             </div>
@@ -55,10 +56,10 @@
                         </select>
                         <label for="id_user">Token User</label>
                         <input type="text" name="id_user" id="id_user" placeholder="Token User" class="form-control" value="{{old('id_user')}}">
-                        <label for="start">Start Time</label>
-                        <input type="datetime-local" class="form-control" name="start" id="start" value="{{old('start')}}">
-                        <label for="end">End Time</label>
-                        <input type="datetime-local" class="form-control" name="end" id="end" value="{{old('end')}}">
+                        <label for="start">Tanggal Mulai</label>
+                        <input type="datetime-local" class="form-control tanggal" name="start" id="start" value="{{old('start')}}">
+                        <label for="end">Tanggal Akhir</label>
+                        <input type="datetime-local"  class="form-control tanggal-akhir" name="end" id="end" value="{{old('end')}}">
                         <a href="user/register">Belum memiliki User?</a>
                         @if (count($errors) > 0)
                             <ul class="text-danger">
@@ -66,9 +67,10 @@
                                 <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
-                    @endif
+                        @endif
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="myBtn">Batalkan</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
@@ -76,9 +78,11 @@
         </div>
         </div>
         <script>
-
             $(document).ready(function () {
-            
+                $("#myBtn").click(function() {
+                    $("#calendarModal").modal("hide");
+                });
+
                 $.ajaxSetup({
                     headers:{
                         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
@@ -97,9 +101,11 @@
                     selectHelper: true,
                     select:function(start, end, allDay)
                     {
-                        // start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');           
-                        // end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');            
-                            $("#calendarModal").modal("show");
+                        function date(){
+                            document.getElementById("start").value = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
+                            document.getElementById("end").value = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
+                        }          
+                            $("#calendarModal").modal("show").onclick(date());
          
                         // var title = prompt('Event Title:');           
                         // if(title)
@@ -171,7 +177,7 @@
                                 alert("Acara berhasil diubah");
                             }
                         })
-                    }
+                    },
             
                     // eventClick:function(event)
                     // {
