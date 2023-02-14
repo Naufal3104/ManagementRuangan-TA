@@ -6,15 +6,17 @@ use App\Models\Event;
 use App\Models\Ruangan;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function home(){
-        $admin=User::first();
+        $admin=User::first()->telp;
         $data=Ruangan::all();
         $event=Event::all();
-        return view('dashboard', compact('admin','data','event'));
+        $telp =Str::substr($admin, 1);
+        return view('dashboard', compact('admin','data','event','telp'));
     }
 
     public function admin(){
