@@ -31,8 +31,12 @@
               <div class = "card shadow mb-4 h-93">
                   <div class = "card-body text-center">
                     <h2>Butuh bantuan?</h2><br><br><br>  
-                    <div class="col-ml-12">  
-                      <a href = "https://wa.me/62{{$admin->telp}}" class = "btn btn-success btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
+                    <div class="col-ml-12">
+                      @if ($telp == null)
+                        <a href = "" class = "btn btn-danger btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
+                      @else
+                        <a href = "https://wa.me/62{{$telp}}" class = "btn btn-success btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
+                      @endif
                     </div>
                   </div>
               </div>
@@ -71,10 +75,9 @@
             <div class = "col-lg-6">
                 <div class = "card shadow mb-4">
                     <div class = "card-body text-center">
-                      <a href="/full-calender" class="btn">
                       <h2>Acara</h2><br>  
                       <div class="table-wrapper-scroll-y my-custom-scrollbar mb-3">
-                      <table class="table text-center table-borderless">
+                      <table class="table text-center table-borderless text-1xl">
                         <thead>
                           <th>Ruangan</th>
                           <th>Pengguna</th>
@@ -97,7 +100,6 @@
                         </tbody>
                       </table>
                       </div>
-                    </a>
                     </div>
                 </div>
             </div>

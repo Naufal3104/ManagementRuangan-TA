@@ -24,10 +24,10 @@
                                 </div>
                                 <div id="calendar"></div>
                                 <ul>
-                                    <li>Ketuk pada tanggal manapun untuk menambahkan acara</li>
+                                    <li>Ketuk pada tanggal manapun untuk menambahkan acara, tahan beberapa tanggal untuk mengatur tanggal otomatis</li>
                                     <li>Anda juga dapat mengatur waktu penggunaan dengan mengatur waktu secara manual</li>
                                     <li>Seret pada acara untuk memperpanjang/memperpendek durasi acara</li>
-                                    <li>Acara hanya dapat dihapus dan diganti penggunanya oleh admin</li>
+                                    <li>Acara hanya dapat dihapus dan diganti penggunanya/harinya oleh admin</li>
                                 </ul>
                             </div>
                         </div>
@@ -155,29 +155,29 @@
                             }
                         })
                     },
-                    eventDrop: function(event, delta)
-                    {
-                        var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
-                        var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
-                        var title = event.title;
-                        var id = event.id;
-                        $.ajax({
-                            url:"/full-calender/save",
-                            type:"POST",
-                            data:{
-                                title: title,
-                                start: start,
-                                end: end,
-                                id: id,
-                                type: 'update'
-                            },
-                            success:function(response)
-                            {
-                                calendar.fullCalendar('refetchEvents');
-                                alert("Acara berhasil diubah");
-                            }
-                        })
-                    },
+                    // eventDrop: function(event, delta)
+                    // {
+                    //     var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
+                    //     var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
+                    //     var title = event.title;
+                    //     var id = event.id;
+                    //     $.ajax({
+                    //         url:"/full-calender/save",
+                    //         type:"POST",
+                    //         data:{
+                    //             title: title,
+                    //             start: start,
+                    //             end: end,
+                    //             id: id,
+                    //             type: 'update'
+                    //         },
+                    //         success:function(response)
+                    //         {
+                    //             calendar.fullCalendar('refetchEvents');
+                    //             alert("Acara berhasil diubah");
+                    //         }
+                    //     })
+                    // },
             
                     // eventClick:function(event)
                     // {

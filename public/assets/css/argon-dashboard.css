@@ -25099,6 +25099,9 @@ p {
   font-weight: 700;
 }
 
+.text-1xl {
+  font-size: 0.900rem;
+}
 .text-2xl {
   font-size: 1.5rem;
 }

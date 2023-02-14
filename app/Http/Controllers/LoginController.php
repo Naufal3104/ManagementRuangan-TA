@@ -49,9 +49,9 @@ class LoginController extends Controller
             'min' => ':attribute harus :min karakter'
         ];
         $this->validate ($request,[
-            'name' => 'required|min:8',     
+            'name' => 'required|min:5',     
             'email' => 'required|email',     
-            'password' => 'required|min:8',     
+            'password' => 'required|min:5',     
             'telp' => 'required|min:9|numeric'     
         ],$messages);
 

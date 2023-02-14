@@ -85,9 +85,9 @@
                   </div>
                  @endif
                  @if (\Session::has('success'))
-                    <div class="alert alert-success text-center">
+                    <div class="alert alert-success">
                       <ul>
-                        <ol class="col-mr-2">{!!\Session::get('success')!!}</ol>
+                        <ol>{!!\Session::get('success')!!}<button type="button" class="btn-close position-absolute end-1" data-bs-dismiss="alert" aria-label="Close"></button></ol>
                       </ul>
                     </div>
                  @endif
