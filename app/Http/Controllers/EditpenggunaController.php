@@ -59,7 +59,7 @@ class EditpenggunaController extends Controller
             'id_user' => 'required_without:id_transaksi',
             'id_transaksi' => 'prohibited_unless:id_user,==,null',
             'start' => 'required',
-            'end' => 'required|after:Waktupenggunaan',
+            'end' => 'required|after:start',
             'title' => 'required'         
         ],$messages);
         
