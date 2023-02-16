@@ -12,8 +12,8 @@
                             <thead>
                                 <th></th>
                                 <th>Acara</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
+                                <th>Ruangan</th>
+                                <th>Tanggal digunakan - Hingga</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
@@ -21,8 +21,8 @@
                                     @forelse ($event as $key => $item)
                                     <td>{{ $event->firstItem() + $key }}</td>
                                     <td>{{$item->title}}</td>
-                                    <td>{{$item->start}}</td>
-                                    <td>{{$item->end}}</td>
+                                    <td>{{$item->ruangan->Namaruangan}}</td>
+                                    <td>{{$item->start}} - {{$item->end}}</td>
                                     <td>
                                         <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#eventModal"><i class="ni ni-air-baloon"></i></a>
                                     </td>

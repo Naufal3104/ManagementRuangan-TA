@@ -33,36 +33,35 @@
                                             @csrf
                                             <button class="btn btn-danger" type="submit">Hapus</button>    
                                         </form>                          
-                                    </td>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title" id="exampleModalLabel">Izinkan Transaksi</h5>
-                                            </div>
-                                            <div class="modal-body">
-                                              <form method = "POST" enctype  = "multipart/form-data" action="{{route('adminrequest.update',$item->id)}}">
-                                                {{method_field('PUT')}}
-                                                 @csrf
-                                                Izinkan pemesanan ruangan?
-                                                <input type="hidden" class="form-control" id="Status" name="Status" value="1">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success" value="Simpan">Izinkan</button>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batalkan</button>
-                                              </form>
-                                              <form method = "POST" enctype  = "multipart/form-data" action="{{route('adminrequest.update',$item->id)}}">
-                                                {{method_field('PUT')}}
-                                                 @csrf
-                                                 <input type="hidden" class="form-control" id="Status" name="Status" value="">
-                                                 <button type="submit" class="btn btn-primary">Batalkan Izin</button>
-                                              </form>
-                                              </div>
-                                          </div>
-                                        </div>
-                                      </div>    
-                                    @csrf
+                                    </td>   
                                 </tr>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Izinkan Transaksi</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                          <form method = "POST" enctype  = "multipart/form-data" action="{{route('adminrequest.update',$item->id)}}">
+                                            {{method_field('PUT')}}
+                                             @csrf
+                                            Izinkan pemesanan ruangan?
+                                            <input type="hidden" class="form-control" id="Status" name="Status" value="1">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success" value="Simpan">Izinkan</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Batalkan</button>
+                                          </form>
+                                          {{-- <form method = "POST" enctype  = "multipart/form-data" action="{{route('adminrequest.update',$item->id)}}">
+                                            {{method_field('PUT')}}
+                                             @csrf
+                                             <input type="hidden" class="form-control" id="Status" name="Status" value="">
+                                             <button type="submit" class="btn btn-primary">Batalkan Izin</button>
+                                          </form> --}}
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div> 
                                 @endforeach
                             </tbody>
                         </table>

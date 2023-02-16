@@ -67,14 +67,14 @@
         Ruangan :   {{$event->ruangan->Namaruangan}}<br> 
         Acara : {{$event->title}}<br>
         Waktu penggunaan  : {{$event->start}}<br>
-        Waktu hingga : {{$event->end}}<br>
+        Waktu hingga : {{$event->end}}<br><br>
         @if($event->id_user == null)
-        Guest<br>
+        <strong>Guest</strong> <br>
         Nama    :   {{$event->transaksi->Nama}}<br>
         Nomor Telepon   :   {{$event->transaksi->NomorTelepon}}<br>
         Alamat  :   {{$event->transaksi->alamat}}<br><br>
         @else
-        User<br> 
+        <strong>User</strong><br> 
         Nama    :   {{$event->user->Namapengguna}}<br>
         Nomor Telepon   :   {{$event->user->Nomortelepon}}<br>
         NISN/NRG    :   {{$event->user->nisn}}<br>
