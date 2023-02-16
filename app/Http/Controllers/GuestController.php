@@ -19,7 +19,7 @@ class GuestController extends Controller
      */
     public function index()
     {
-        $event = Event::simplePaginate(5);
+        $event = Event::simplePaginate(8);
         return view('guest', compact('event'));
 
         // dd(Carbon::now()->diffForHumans());

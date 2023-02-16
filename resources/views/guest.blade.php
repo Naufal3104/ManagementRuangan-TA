@@ -10,7 +10,7 @@
                     <div class = "card-body">
                         <table class = "table text-center table-borderless">
                             <div class="position-absolute end-0 translate-middle mt-3">
-                                <a href="{{ route('guest.create') }}" class="btn btn-primary btn-sm">Pesan</a><br>
+                                <a href="{{ route('guest.create') }}" class="btn btn-primary ">Pesan</a><br>
                             </div>
                             <thead>
                                 <?php

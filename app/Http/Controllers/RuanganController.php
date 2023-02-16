@@ -42,7 +42,7 @@ class RuanganController extends Controller
         ];
         $this->validate ($request,[
             'Namaruangan' => 'required',         
-            'foto' => 'required|mimes:jpg,jpeg,png,svg',         
+            'foto' => 'mimes:jpg,jpeg,png,svg',         
         ],$messages);
 
         
@@ -100,13 +100,31 @@ class RuanganController extends Controller
             'required' =>':attribute harus diisi terlebih dahulu'
         ];
         $this->validate ($request,[
-            'Namaruangan' => 'required',         
+            'Namaruangan' => 'required',  
+            'foto' => 'mimes:jpg,jpeg,png,svg'       
         ],$messages);
-        
-        $ruangan=Ruangan::find($id);
-        $ruangan->Namaruangan = $request->Namaruangan;
-        $ruangan->save();
-        return redirect('editruangan');
+
+        if($request->foto !=''){
+            
+            $file = $request->file('foto');
+    
+            $nama_file = time()."_".$file->getClientOriginalName();
+    
+            $tujuan_upload = './template/img';
+            $file->move($tujuan_upload,$nama_file);
+    
+            $ruangan=Ruangan::find($id);
+            $ruangan->Namaruangan = $request->Namaruangan;
+            $ruangan->foto = $nama_file;                    
+            $ruangan->save();
+            return redirect('editruangan');
+            
+        }else{
+            $ruangan=Ruangan::find($id);
+            $ruangan->Namaruangan = $request->Namaruangan;
+            $ruangan->save();
+            return redirect('editruangan');                  
+        }
     }
 
     /**

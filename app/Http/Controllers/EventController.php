@@ -62,14 +62,15 @@ class EventController extends Controller
 		$messages = [
             'required' =>':attribute harus diisi terlebih dahulu',
             'numeric' =>':attribute harus diisi angka',
-            'date' =>':attribute harus berupa tahun-bulan-tanggal'
+            'date' =>':attribute harus berupa tahun-bulan-tanggal',
+			'after' => 'Tanggal akhir tidak boleh sebelum Tanggal mulai'
         ];
         $this->validate ($request,[
             'title' => 'required',     
             'id_ruangan' => 'required',     
             'id_user' => 'required',     
-            'start' => 'required',     
-            'end' => 'required',     
+            'start' => 'required|date',     
+            'end' => 'required|date|after:start',     
         ],$messages);
 
 		Event::create([

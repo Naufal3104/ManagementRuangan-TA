@@ -16,7 +16,7 @@
   <div class="container-fluid py-4">
     <div class="row">
         <div class = "row">
-            <div class = "col-lg-6">
+            <div class = "col-lg-6 ">
                 <div class = "card shadow mb-4 h-93">
                     <div class = "card-body text-center">
                       <h2>Pilih Layanan</h2><br> <br> 
@@ -52,7 +52,8 @@
                             @foreach($data as $item)
                             <td>{{$item->Namaruangan}}</td>
                             <td>
-                              <a class="btn btn-info " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#roomModal"><i class="ni ni-air-baloon"></i></a>
+                              <a class="btn btn-link d-inline" href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#roomModal"><i class="ni ni-bulb-61"></i></a>
+                              <a class="btn btn-link d-inline btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto" href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#roomModal"><i class="ni ni-bold-right" aria-hidden="true"></i></a>
                             </td>
                           </tr>
                           @endforeach
