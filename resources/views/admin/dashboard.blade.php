@@ -8,7 +8,7 @@
             <div class = "card shadow ">
                 <div class = "card-body">
                     <table class = "table text-center table-borderless">
-                        <h4 class="text-center">Jadwal</h4>
+                        <h2 class="text-center fw-bold">Jadwal</h2>
                         <thead>
                             <tr>
                                 <th scope = "col">Ruangan</th>

@@ -13,11 +13,17 @@
 </head>
 <body class="g-sidenav-show bg-gray-100">
 @include('sidebar')
+
+<main class="main-content position-relative border-radius-lg"> 
+
 @include('topbar')
   @yield('content')
+
 </main>
+
 @include('footer')
 @include('script')
+
 </body>
 
 </html>
