@@ -44,23 +44,25 @@ class RuanganController extends Controller
             'Namaruangan' => 'required',         
             'foto' => 'mimes:jpg,jpeg,png,svg',         
         ],$messages);
-
-        
-        //ambil informasi file
+        if($request->foto !=''){
+                                
         $file = $request->file('foto');
-
-        //rename
         $nama_file = time()."_".$file->getClientOriginalName();
-
-        //proses upload
         $tujuan_upload = './template/img';
         $file->move($tujuan_upload,$nama_file);
 
-        
-        Ruangan::create([
-            'Namaruangan' => $request->Namaruangan,
-            'foto' => $nama_file                  
-        ]);
+            Ruangan::create([
+                'Namaruangan' => $request->Namaruangan,
+                'foto' => $nama_file                  
+            ]);
+
+        }else{
+
+            Ruangan::create([
+                'Namaruangan' => $request->Namaruangan,
+            ]);
+
+        }
         return redirect('editruangan');
     }
 

@@ -26,7 +26,7 @@
                                 <ul>
                                     <li>Ketuk pada tanggal manapun untuk menambahkan acara, tahan beberapa tanggal untuk mengatur tanggal otomatis</li>
                                     <li>Anda juga dapat mengatur waktu penggunaan dengan mengatur waktu secara manual</li>
-                                    <li>Seret pada acara untuk memperpanjang/memperpendek durasi acara</li>
+                                    <li>Seret pada tab week/day di bagian acara untuk memperpanjang/memperpendek durasi acara</li>
                                     <li>Acara hanya dapat dihapus dan diganti penggunanya/harinya oleh admin</li>
                                 </ul>
                             </div>

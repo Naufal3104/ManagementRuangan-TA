@@ -27,7 +27,8 @@ class DashboardController extends Controller
     public function show($id)
     {
         $ruangan = Ruangan::find($id);
-        return view('showruangan', compact('ruangan'));
+        $event = Event::where('id_ruangan',$id)->get();
+        return view('showruangan', compact('ruangan','event'));
     }
 
     public function destroy($id)
