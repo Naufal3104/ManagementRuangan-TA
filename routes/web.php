@@ -33,9 +33,7 @@ Route::get('/full-calender', [EventController::class, 'index']);
 
 Route::post('/full-calender/save', [EventController::class, 'action']);
 
-Route::get('/full-calender/list', [EventController::class, 'list_event']);
-
-Route::get('/full-calender/list/{id}', [EventController::class, 'show']);
+Route::get('/full-calender/{id}', [EventController::class, 'show']);
 
 Route::get('/user/register', [PenggunaController::class, 'create']);
 

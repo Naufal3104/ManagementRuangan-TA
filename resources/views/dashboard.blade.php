@@ -32,10 +32,10 @@
                   <div class = "card-body text-center">
                     <h2>Butuh bantuan?</h2><br><br><br>  
                     <div class="col-ml-12">
-                      @if ($telp == null)
+                      @if ($admin == null)
                         <a href = "" class = "btn btn-danger btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
                       @else
-                        <a href = "https://wa.me/62{{$telp}}" class = "btn btn-success btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
+                        <a href = "https://wa.me/62{{$admin->telp}}" class = "btn btn-success btn-lg btn-outline-light w-50"><i class = "ni ni-send"></i><br>Hubungi Admin</a>  
                       @endif
                     </div>
                   </div>
@@ -46,10 +46,10 @@
                     <div class = "card-body text-center">
                       <h2>Daftar Ruangan</h2><br>
                       <div class="table-wrapper-scroll-y my-custom-scrollbar mb-3">
-                      <table class="table text-center table-borderless">
+                      <table class="table text-center table-borderless table-responsive-xxl">
                         <tbody>
                           <tr>
-                            @foreach($data as $item)
+                            @foreach($ruangan as $item)
                             <td>{{$item->Namaruangan}}</td>
                             <td>
                               <a class="btn btn-link d-inline" href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#roomModal"><i class="ni ni-bulb-61"></i></a>
@@ -78,7 +78,7 @@
                     <div class = "card-body text-center">
                       <h2>Acara</h2><br>  
                       <div class="table-wrapper-scroll-y my-custom-scrollbar mb-3">
-                      <table class="table text-center table-borderless text-1xl">
+                      <table class="table text-center table-borderless text-1xl table-responsive-xl">
                         <thead>
                           <th>Ruangan</th>
                           <th>Pengguna</th>
@@ -90,9 +90,7 @@
                             <td>{{$item->ruangan->Namaruangan}}</td>
                             <td>
                               @if($item->id_transaksi == null)
-                              {{$item->user->Namapengguna}}
-                              @else
-                              {{$item->transaksi->Nama}}
+                                {{$item->nisn}}
                               @endif
                             </td>
                             <td>{{$item->start}} - {{$item->end}}</td>

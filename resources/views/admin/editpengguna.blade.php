@@ -8,7 +8,7 @@
             <div class = "col-lg-6">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <table class = "table text-center  table-borderless">
+                        <table class = "table text-center table-responsive-xl table-borderless">
                             <h4 class="text-center">Ruangan dengan User | <a href="{{route('editpengguna.create')}}" class="text-success">Tambah data</a></h4>
                             <thead>
                                 <tr>
@@ -18,10 +18,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($user as $item)
+                                @forelse ($user as $item)
                                 <tr>
                                     <td>{{$item->ruangan->Namaruangan}}</td>
-                                    <td>{{$item->user->Namapengguna}}</td>
+                                    <td>{{$item->nisn}}{{$item->nip}}</td>
                                     <td>
                                         <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal"><i class="ni ni-bulb-61"></i></a>
                                         <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
@@ -30,9 +30,14 @@
                                             @csrf
                                             <button class="btn btn-danger"><i class="ni ni-fat-delete"></i></button>      
                                         </form> 
-                                    </td>    
-                                    @endforeach
-                                </tr>
+                                    </td>   
+                                </tr> 
+                                    @empty
+                                    <tr>
+                                        <td colspan="5">No data</td>
+                                    </tr>
+                                    @endforelse
+                                    @csrf
                             </tbody>
                         </table>
                     </div>
@@ -41,7 +46,7 @@
             <div class = "col-lg-6">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <table class = "table text-center  table-borderless">
+                        <table class = "table text-center table-responsive-xl table-borderless">
                             <h4 class="text-center">Ruangan dengan Guest |  <a href="{{route('editpengguna.create')}}" class="text-success">Tambah data</a></h4>
                             <thead>
                                 <tr>
@@ -51,21 +56,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($guest as $item)
-                                <tr>
-                                    <td>{{$item->ruangan->Namaruangan}}</td>
-                                    <td>{{$item->transaksi->Nama}}</td>
-                                    <td>
-                                        <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal"><i class="ni ni-bulb-61"></i></a>
-                                        <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
-                                        <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline" onsubmit="return confirm('Hapus data Acara Ini?')">
-                                            @method('delete')
-                                            @csrf
-                                            <button class="btn btn-danger"><i class="ni ni-fat-delete"></i></button>      
-                                        </form>
-                                    </td>                                    
-                                    @endforeach
-                                </tr>
+                            @forelse ($guest as $key => $item)
+                            <tr>
+                                <td>{{$item->ruangan->Namaruangan}}</td>
+                                <td>{{$item->transaksi->Nama}}</td>
+                                <td>
+                                    <a class="btn btn-primary " href="#" onclick="show('{{ $item->id }}', event)" data-toggle="modal" data-target="#requestModal"><i class="ni ni-bulb-61"></i></a>
+                                    <a href="editpengguna/{{ $item->id}}/edit" class="btn btn-warning"><i class="ni ni-single-copy-04"></i></a>  
+                                    <form action="editpengguna/{{ $item->id}}" method="POST" class="d-inline" onsubmit="return confirm('Hapus data Acara Ini?')">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-danger"><i class="ni ni-fat-delete"></i></button>      
+                                    </form>
+                                </td>                                    
+                            </tr> 
+                            @empty
+                                    <tr>
+                                        <td colspan="5">No data</td>
+                                    </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>

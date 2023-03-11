@@ -14,7 +14,10 @@ class Event extends Model
         'id_user',
         'id_transaksi',
         'start',
-        'end'
+        'end',
+        'nisn',
+        'nip',
+        'status'
     ];
 
     protected $table = 'event';

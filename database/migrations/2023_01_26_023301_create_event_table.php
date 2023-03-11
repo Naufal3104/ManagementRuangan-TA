@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('event', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('nisn')->nullable();
+            $table->string('nip')->nullable();
             $table->bigInteger('id_ruangan')->unsigned();
             $table->foreign('id_ruangan')->references('id')->on('ruangan')
             ->onDelete('cascade')
@@ -28,6 +30,7 @@ return new class extends Migration
             $table->foreign('id_transaksi')->references('id')->on('transaksi')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->boolean('status')->unsigned()->nullable();
             $table->dateTime('start');
             $table->dateTime('end');
             $table->timestamps();

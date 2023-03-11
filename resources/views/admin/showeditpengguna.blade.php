@@ -29,27 +29,25 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Rincian penggunaan</h5>
       </div>
-      <div class="modal-body">       
-        @if($data->id_user == null)
-        Guest<br>
-        Nama    :   {{$data->transaksi->Nama}}<br>
-        Nomor Telepon   :   {{$data->transaksi->NomorTelepon}}<br>
-        Alamat : {{$data->transaksi->alamat}}<br><br>
-        Ruangan :   {{$data->ruangan->Namaruangan}}<br> 
-        Acara : {{$data->title}}<br>
-        Waktu penggunaan  : {{$data->start}}<br>
-        Waktu hingga : {{$data->end}}
-        @else
-        User<br> 
-        Nama    :   {{$data->user->Namapengguna}}<br>
-        Nomor Telepon   :   {{$data->user->Nomortelepon}}<br>
-        NISN/NRG    :   {{$data->user->nisn}}<br>
-        Jenis Kelamin   :   {{$data->user->jeniskelamin}}<br>
-        Alamat  :   {{$data->user->Alamat}}<br><br>
+      <div class="modal-body"> 
+        @if($data->id_transaksi == null)
+        <strong>User</strong><br>
         Ruangan :   {{$data->ruangan->Namaruangan}} <br>
         Acara : {{$data->title}}<br>
         Waktu penggunaan  : {{$data->start}}<br>
-        Waktu hingga : {{$data->end}}
+        Waktu hingga : {{$data->end}}<br>
+        <strong>Pengguna</strong><br>
+        Pengguna  : {{$data->nisn}}{{$data->nip}}<br>
+        @else
+        <strong>Guest</strong><br>
+        Ruangan :   {{$data->ruangan->Namaruangan}} <br>
+        Acara : {{$data->title}}<br>
+        Waktu penggunaan  : {{$data->start}}<br>
+        Waktu hingga : {{$data->end}}<br>
+        <strong>Pengguna</strong><br>
+        Nama  : {{$data->transaksi->Nama}}<br>
+        Alamat  : {{$data->transaksi->alamat}}<br>
+        Nomor telepon  : {{$data->transaksi->NomorTelepon}}<br>
         @endif
       </div>
       <div class="modal-footer">

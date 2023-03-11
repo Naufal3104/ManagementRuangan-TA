@@ -21,7 +21,6 @@ class EventController extends Controller
 		$ruangan = Ruangan::all();
     	return view('calender',compact('ruangan'));
     }
-
     public function action(Request $request)
     {
 		if($request->ajax())
@@ -63,12 +62,15 @@ class EventController extends Controller
             'required' =>':attribute harus diisi terlebih dahulu',
             'numeric' =>':attribute harus diisi angka',
             'date' =>':attribute harus berupa tahun-bulan-tanggal',
-			'after' => 'Tanggal akhir tidak boleh sebelum Tanggal mulai'
+			'after' => 'Tanggal akhir tidak boleh sebelum Tanggal mulai',
+			'required_without' =>'Pilih salah satu nisn atau nip',
+            'prohibited_unless' =>'Hanya dapat memilih satu nisn atau nip',
         ];
         $this->validate ($request,[
             'title' => 'required',     
             'id_ruangan' => 'required',     
-            'id_user' => 'required',     
+            'nisn' => 'required_without:nip',     
+            'nip' => 'prohibited_unless:nisn,==,null',     
             'start' => 'required|date',     
             'end' => 'required|date|after:start',     
         ],$messages);
@@ -76,7 +78,8 @@ class EventController extends Controller
 		Event::create([
     		'title'		=>	$request->title,
     		'id_ruangan'=>	$request->id_ruangan,
-    		'id_user'	=>	$request->id_user,
+    		'nisn'	=>	$request->nisn,
+    		'nip'	=>	$request->nip,
     		'start'		=>	$request->start,
     		'end'		=>	$request->end
     	]);
@@ -93,15 +96,8 @@ class EventController extends Controller
 
     }
 
-	public function list_event()
-	{
-		$event = Event::simplePaginate(5);
-		return view('listevent',compact('event'));
+	public function show($id){
+		$event=Event::find($id);
+		return view('showevent',compact('event'));
 	}
-
-	public function show($id)
-	{
-		$event = Event::find($id);
-		return view('showlistevent', compact('event'));
-    }
 }

@@ -7,7 +7,7 @@
             <div class = "col-lg-12">
                 <div class = "card shadow mb-4">
                     <div class = "card-body">
-                        <table class = "table table-borderless">
+                        <table class = "table table-borderless table-responsive-xl">
                             <thead class="text-center">
                                     <tr>
                                         <th scope = "col">Daftar Permintaan</th>

@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','Event')
+@section('title','Order')
 @section('content-title','Acara')
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -19,14 +19,14 @@
                         <div class = "card-body">
                             <div class="container">
                                 <div class="position-relative">
-                                <a href="/full-calender/list" class="position-absolute top-0 start-0"><strong>Daftar Acara</strong></a><br>
-                                <a href="user/register" class="position-absolute top-0 end-0"><strong>Register</strong></a><br>
+                                {{-- <a href="/full-calender/list" class="position-absolute top-0 start-0"><strong>Daftar Acara</strong></a><br> --}}
+                                {{-- <a href="user/register" class="position-absolute top-0 end-0"><strong>Register</strong></a><br> --}}
                                 </div>
                                 <div id="calendar"></div>
                                 <ul>
                                     <li>Ketuk pada tanggal manapun untuk menambahkan acara, tahan beberapa tanggal untuk mengatur tanggal otomatis</li>
                                     <li>Anda juga dapat mengatur waktu penggunaan dengan mengatur waktu secara manual</li>
-                                    <li>Seret pada tab week/day di bagian acara untuk memperpanjang/memperpendek durasi acara</li>
+                                    <li>Seret pada bagian acara pada tab week/day untuk memperpanjang/memperpendek durasi acara</li>
                                     <li>Acara hanya dapat dihapus dan diganti penggunanya/harinya oleh admin</li>
                                 </ul>
                             </div>
@@ -43,24 +43,44 @@
                     <h5 class="modal-title" id="exampleModalLabel">Tambahkan Jadwal</h5>
                   </div>
                 <div id="modalBody" class="modal-body">
-                <form action="/full-calender/save" method="POST" enctype="multipart/form-data">
+                <form action="/full-calender/save" name="store" method="POST" enctype="multipart/form-data">
                     @csrf
                         <label for="title">Acara</label>
                         <input type="text" placeholder="Acara" name="title" id="title" class="form-control" value="{{old('title')}}">
                         <label for="id_ruangan">Ruangan</label>
-                        <select type="text" name="id_ruangan" id="id_ruangan" class="form-control">
-                            <option selected value="">Pilih Ruangan</option>
+                        <select type="text" name="id_ruangan" id="id_ruangan" class="form-control form-select">
                             @foreach($ruangan as $item)
                             <option value="{{$item->id}}">{{$item->Namaruangan}}</option>
                             @endforeach
                         </select>
-                        <label for="id_user">Token User</label>
-                        <input type="text" name="id_user" id="id_user" placeholder="Token User" class="form-control" value="{{old('id_user')}}">
+                        {{-- <label for="id_user">Token User</label>
+                        <input type="text" name="id_user" id="id_user" placeholder="Token User" class="form-control" value="{{old('id_user')}}"> --}}
                         <label for="start">Tanggal Mulai</label>
                         <input type="datetime-local" class="form-control tanggal" name="start" id="start" value="{{old('start')}}">
                         <label for="end">Tanggal Akhir</label>
-                        <input type="datetime-local"  class="form-control tanggal-akhir" name="end" id="end" value="{{old('end')}}">
-                        <a href="user/register">Belum memiliki User?</a>
+                        <input type="datetime-local"  class="form-control tanggal-akhir" name="end" id="end" value="{{old('end')}}"><br>
+                        <label for="" class="text-1xl"><strong>Pengguna</strong></label><br>
+                        <label for="nisn">NISN</label>
+                        <input type="text" class="form-control" name="nisn" id="nisn" value="{{old('nisn')}}">
+                        <label for="nip">NIP</label>
+                        <input type="text" class="form-control" name="nip" id="nip" value="{{old('nip')}}">
+                        <script>
+                            function validateForm(){
+                                var x=document.forms["store"]["nisn"].value;
+                                    if (isNaN(x)) 
+                                    {
+                                        alert("NISN harus berupa angka"); 
+                                        return false;
+                                    }
+                                var z=document.forms["store"]["nip"].value;
+                                    if (isNaN(z)) 
+                                    {
+                                        alert("NIP harus berupa angka"); 
+                                        return false;
+                                    }
+                            }
+                        </script>
+                        {{-- <a href="user/register">Belum memiliki User?</a> --}}
                         @if (count($errors) > 0)
                             <ul class="text-danger">
                                 @foreach($errors->all() as $error)
@@ -71,7 +91,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" id="myBtn">Batalkan</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" onclick="return validateForm()" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
             </div>
@@ -179,26 +199,11 @@
                     //     })
                     // },
             
-                    // eventClick:function(event)
-                    // {
-                    //     if(confirm("Are you sure you want to remove it?"))
-                    //     {
-                    //         var id = event.id;
-                    //         $.ajax({
-                    //             url:"/full-calender/action",
-                    //             type:"POST",
-                    //             data:{
-                    //                 id:id,
-                    //                 type:"delete"
-                    //             },
-                    //             success:function(response)
-                    //             {
-                    //                 calendar.fullCalendar('refetchEvents');
-                    //                 alert("Event Deleted Successfully");
-                    //             }
-                    //         })
-                    //     }
-                    // }
+                    eventClick:function(event)
+                    {
+                        var id = event.id;
+                        window.location.replace('full-calender/' +id);
+                    }
                 });
             
             });

@@ -12,11 +12,14 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function home(){
-        $admin=User::first()->telp;
-        $data=Ruangan::all();
+        if(User::all() == null){
+
+        }else{
+        $admin = User::first( );
+        $ruangan=Ruangan::all();
         $event=Event::all();
-        $telp =Str::substr($admin, 1);
-        return view('dashboard', compact('admin','data','event','telp'));
+        return view('dashboard', compact('ruangan','event','admin'));
+        }   
     }
 
     public function admin(){

@@ -12,16 +12,13 @@
                         <form class="row g-3" method = "POST" enctype  = "multipart/form-data" action="{{route('editpengguna.store')}}">
                           @csrf 
                             <h4 class="text-center text-bold">Pilih salah satu pengguna</h4>
-                            <div class="col-md-6">
-                              <label for="id_user" class="form-label">Id User</label>
-                              <select type="text" class="form-control form-select" id="id_user" name="id_user" value="{{old('id_user')}}">
-                                <option selected></option>
-                                @foreach ($pengguna as $item)
-                                <option value="{{$item->id}}">{{$item->Namapengguna}} - {{$item->id}} - {{$item->nisn}}</option>
-                                @endforeach
-                              </select>
+                            <div class="col-md-6"> 
+                              <label for="">User</label><br>
+                              <label for="">NISN</label>
+                              <input type="text"class="form-control" name="" id="">
                             </div>
                             <div class="col-md-6">
+                              <Label for="">Guest</Label><br>
                               <label for="id_transaksi" class="form-label">Id Guest</label>
                               <select type="text" class="form-control form-select" id="id_transaksi" name="id_transaksi" value="{{old('id_transaksi')}}">
                                 <option selected></option>
@@ -29,6 +26,10 @@
                                 <option value="{{$item->id}}">{{$item->Nama}} - {{$item->id}} - {{$item->token}}</option>
                                 @endforeach
                               </select>
+                            </div>
+                            <div class="col-md-6">
+                              <label for="">NIP</label>
+                              <input type="text" class="form-control" name="" id="">
                             </div>
                             <div class = "col-md-12">       
                                 <label for = "id_ruangan">Pilih Ruangan</label>

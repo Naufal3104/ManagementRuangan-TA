@@ -20,8 +20,8 @@ class EditpenggunaController extends Controller
      */
     public function index()
     {
-        $user = Event::all()->where('id_transaksi', '==', null);
-        $guest = Event::all()->where('id_user', '==', null );
+        $user = Event::simplePaginate(10)->where('id_transaksi', '==', null);
+        $guest = Event::simplePaginate(10)->where('id_transaksi', '!=', null );
         return view('admin.editpengguna', compact('user', 'guest'));
     }
 

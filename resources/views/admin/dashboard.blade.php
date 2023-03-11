@@ -7,7 +7,7 @@
         <div class = "col-lg-12">
             <div class = "card shadow ">
                 <div class = "card-body">
-                    <table class = "table text-center table-borderless">
+                    <table class = "table text-center table-borderless table-responsive-xxl">
                         <h2 class="text-center fw-bold">Jadwal</h2>
                         <thead>
                             <tr>
@@ -32,14 +32,14 @@
                         </tbody>
                     </table>
                     {{ $event->links()}}<br>
-                    <div class="text-center">
+                    {{-- <div class="text-center">
                         @foreach($event as $item)
                         <form action="admin/delete/{{$item->id}}" method="POST">
                             @csrf
                             @endforeach
                             <button type="submit" class ="btn btn-info w-25"><i class="ni ni-watch-time"></i><br>Perbarui Jadwal</button>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
